@@ -5,14 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --inspect index.js",
+    "watch": "node-sass -w src/resource/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "node-sass": "^4.14.1",
     "nodemon": "^2.0.4"
   }
 }

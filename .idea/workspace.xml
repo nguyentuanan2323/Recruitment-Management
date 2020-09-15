@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a5af20f-193e-407d-92ae-22090e5df31d" name="Default Changelist" comment="" />
+    <list default="true" id="0a5af20f-193e-407d-92ae-22090e5df31d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/KillPortConflic" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodemon.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resource/views/layout.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resource/views/layout/home.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resource/views/layout/test.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resource/views/partials/footer.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resource/views/partials/topmenu.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/dád.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/scss/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/scss/app.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,8 +44,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hRuJOpIirXy3YgmZ3SjgNmpZmv" />
   <component name="ProjectViewState">
@@ -20,6 +57,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
@@ -30,7 +68,14 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\resource\views\partials" />
+      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\resource\views" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -42,22 +87,48 @@
       <updated>1599986153977</updated>
       <workItem from="1599986155532" duration="518000" />
       <workItem from="1599986690030" duration="1380000" />
-      <workItem from="1599988089914" duration="3111000" />
+      <workItem from="1599988089914" duration="3479000" />
+      <workItem from="1599992144122" duration="41000" />
+      <workItem from="1600012655750" duration="4505000" />
+      <workItem from="1600070502972" duration="318000" />
+      <workItem from="1600070833709" duration="148000" />
+      <workItem from="1600070991799" duration="7738000" />
+      <workItem from="1600079050183" duration="69000" />
+      <workItem from="1600079130744" duration="604000" />
+      <workItem from="1600079812024" duration="4823000" />
+      <workItem from="1600097406796" duration="100000" />
+      <workItem from="1600098018131" duration="306000" />
+      <workItem from="1600098341572" duration="2631000" />
+      <workItem from="1600170394117" duration="1847000" />
+      <workItem from="1600176520693" duration="211000" />
+      <workItem from="1600185706531" duration="4371000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" width="1089" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599988803671">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" width="1089" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1599988803671" />
-    <state x="535" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599987774561">
+    <state x="535" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600098604906">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="535" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1599987774561" />
+    <state x="535" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1600098604906" />
     <state x="548" y="117" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1599988603402">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -70,5 +141,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="637" y="162" key="EnvironmentVariablesDialog/0.0.1536.824@0.0.1536.824" timestamp="1599988636809" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1600017020290">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600017020290" />
+    <state x="367" y="0" width="581" height="824" key="find.popup" timestamp="1600017099920">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="367" y="0" width="581" height="824" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1600017099920" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1600070776493">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1600070776493" />
   </component>
 </project>
