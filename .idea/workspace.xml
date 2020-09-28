@@ -6,8 +6,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a5af20f-193e-407d-92ae-22090e5df31d" name="Default Changelist" comment="Add lib main express-main-layout&#10;main layout">
+      <change afterPath="$PROJECT_DIR$/src/public/css/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resource/views/partials/highsalaryJob.ejs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resource/views/partials/hotjob.ejs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/views/layout.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/views/layout.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/views/layout/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/views/layout/home.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resource/views/partials/bestjob.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/views/partials/bestjob.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/views/partials/tét.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/job.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/job.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/router.index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/router.index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,19 +56,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\plugins" />
-      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\css\template\plugins" />
-      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\img" />
-      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\js" />
-      <recent name="D:\New\HK3\De Tai\Source Code\backup" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\plugins" />
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public" />
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\css\template\plugins" />
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\css\orgin" />
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\resource\views\partials" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\plugins" />
+      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\css\template\plugins" />
+      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\img" />
+      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\js" />
+      <recent name="D:\New\HK3\De Tai\Source Code\backup" />
     </key>
   </component>
   <component name="RunManager">
@@ -106,6 +115,11 @@
       <workItem from="1600774776807" duration="5862000" />
       <workItem from="1600793318966" duration="4990000" />
       <workItem from="1600868542078" duration="9105000" />
+      <workItem from="1601108297990" duration="5195000" />
+      <workItem from="1601128257499" duration="5687000" />
+      <workItem from="1601183755937" duration="203000" />
+      <workItem from="1601258825217" duration="580000" />
+      <workItem from="1601259419229" duration="4363000" />
     </task>
     <task id="LOCAL-00001" summary="Add lib main express-main-layout&#10;main layout">
       <created>1600191663786</created>
@@ -128,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600876969811</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add lib main express-main-layout&#10;main layout">
+      <created>1601108326769</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601108326769</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
