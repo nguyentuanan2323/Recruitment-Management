@@ -3,8 +3,17 @@
 <div class="boxjbox">
     <div class="container">
         <div class="row">
-            <%- inclue("../partials/bestjob.ejs")%>
-            <%- inclue("../partials/hotjobs.ejs") %>
+
+            <div class="col-md-8 col-sm-12">
+                    <div class="box-high-salary-jobs">
+                        <%- include("../partials/highsalaryjob.ejs")%>
+                    </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <%- include("../partials/hotjob.ejs") %>
+            </div>
+
+
         </div>
     </div>
 </div>

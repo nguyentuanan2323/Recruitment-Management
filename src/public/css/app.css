@@ -1,3 +1,8 @@
+/*định dạng card body*/
+.card-body{
+    padding: -1.75rem;
+}
+
 #tooge_nav{
     background-color: #f7f7f7;
     border-top: 1px solid #e0e0e0;
@@ -149,7 +154,23 @@ navbar2
     text-overflow: ellipsis;
 }
 .text-dark-gray {
-    color: #666;
+    color: #666666;
+}
+.box-high-salary-jobs {
+    background-color: #ffffff;
+}
+.box-high-salary-jobs card-footer {
+    background-color: #ffffff;
+}
+
+.card-footer .carousel-indicators {
+    position:inherit;
+    margin-bottom: 0rem;
+}
+
+
+.card-footer .carousel-indicators li {
+    background-color: #00a65a;
 }
 
 
