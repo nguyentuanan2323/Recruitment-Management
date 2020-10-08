@@ -14,7 +14,6 @@ router.use('/put', ((req, res) => {
     jobService.put(req,res);
 }));
 router.use("/delete", ((req,res) =>{
-    console.log("jfklfhlksdjfklsdjfl")
     jobService.delete(req,res);
 }))
 router.use('/',job.index);

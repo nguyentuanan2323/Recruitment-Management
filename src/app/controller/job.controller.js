@@ -66,7 +66,7 @@ class JobController {
                         res.json({
                             result: 'ok',
                             data: newjob,
-                            message: "!Insert new job successfully"
+                            message: "Insert new job successfully"
                         });
                     }
 
@@ -130,23 +130,22 @@ class JobController {
             _id: new mongoose.Types.ObjectId(`${req.body._id}`)
         }
         console.log(req.params._id);
+        Job.findOneAndDelete({_id: mongoose.Types.ObjectId(req.body._id)}, (err) => {
+           if(err){
+               res.json({
+                   result: "failed",
+                   message: `Can not delete because error is ${err}`
+               })
+               return;
+           }
+           else {
+               res.json({
+                   result: "ok",
+                   message: "Delete succeses fully"
+               })
+           }
+        });
 
-        Job.findByIdAndUpdate(req.params._id).exec((err, deleted) => {
-            if(err){
-                res.json ({
-                    result: 'fail',
-                    data: {},
-                    message: `Update fail ${err}`
-                })
-            }else{
-                res.json({
-                    result: 'ok',
-                    date: null,
-                    count: 0,
-                    message: 'Delete data successflully'
-                })
-            }
-        })
     }
 }
 
