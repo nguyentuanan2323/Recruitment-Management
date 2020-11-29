@@ -1,5 +1,6 @@
-var Job = require('../model/job');
+var job = require('../model/job');
 var mongoose = require("mongoose");
+const Job = require('../model/job');
 
 
 class JobController {
@@ -8,144 +9,108 @@ class JobController {
     }
 
     //get
-    get(req, res) {
-        Job.find().exec((err, jobs) => {
-            if (err) {
-                res.json({
-                    result: "fail",
-                    data: [],
-                    message: `Error is : ${err}`
-                })
-            } else {
-                res.json({
-                    result: "ok",
-                    data: jobs,
-                    count: jobs.length,
-                    message: `Query list of foods successfully`
-                })
-            }
+    async get(req, res) {
+        const jobs = await job.findAll();
+        res.json({
+            result: 'ok',
+            data: jobs,
+            count: jobs.length
         })
     }
-    post(req, res) {
-        const job_temp = {
-            name: req.body.name
-        };
-        Job.find(job_temp).limit(1).exec((err, job_temps) =>{
-            if(err){
-
-            }else{
-                if(job_temp.length > 0){
-
-                }
-                const newJob = new Job({
-                    name: req.body.name,
-                    nameCompany: req.body.nameCompany,
-                    deadLine : req.body.deadLine,
-                    quantity: req.body.quantity,
-                    salary: req.body.salary,
-                    exprence : req.body.exprence,
-                    gender : req.body.gender,
-                    addressWork: req.body.addressWork,
-                    localzoneWork: req.body.localzoneWork,
-                    description: req.body.description,
-                    requirement: req.body.requirement,
-                    benefit: req.body.benefit,
-                    major: req.body.major,
-                    skill: req.body.skill,
-                    jobType : req.body.jobType
-                });
-                newJob.save((err, newjob) => {
-                    if(err){
-                        res.json({
-                            result: "faild",
-                            data: {},
-                            message: `Error is:  ${err}`
-                        });
-                    }
-                    else{
-                        res.json({
-                            result: 'ok',
-                            data: newjob,
-                            message: "!Insert new job successfully"
-                        });
-                    }
-
-                })
+    //get By Id
+    
+    async getById(req, res){
+        console.log("fdsfjdsfhsdfdjsfhjdshfsdjhfsdjfhsdjkf")
+        console.log(req.param.Id);
+        const jobdetail = await job.findAll({
+            where: {
+                Id : req.params.Id
             }
-        });
+        })
+        res.json({
+            result: 'ok',
+            data: jobdetail,
+            count: jobdetail.length
+        })
+    }
+
+    post(req, res) {
+        
+        //get information job
+        console.log("request body")
+        console.log(req.body);
+      
+        job.create({
+                Name: `${req.body.Name}`,
+                CompanyName: req.body.CompanyName,
+                DeadLine : `${req.body.DeadLine}`,
+                Quantity: req.body.Quantity,
+                Salary: req.body.Salary,
+                Exprence : req.body.Exprence,
+                Gender : req.body.Gender,
+                AddressWork: req.body.AddressWork,
+                LocalzoneWork: req.body.LocalzoneWork,
+                Description: req.body.Description,
+                CompanyId: req.body.CompanyId,
+                Requirement: req.body.Requirement,
+                Benefit: req.body.Benefit,
+                Major: req.body.Major,
+                Skill: req.body.Skill,
+                JobType : req.body.JobType
+        }).then(function (result){
+            console.log("Abc");
+            console.log(result)
+            
+             res.json({
+                    data: result.dataValues
+                   
+                })
+        })
     }
     put(req, res){
-        let condition = {};
-        const job_editting = {
-            _id : `${req.body._id}`
-        }
-        console.log(job_editting._id);
-
-        Job.find({_id:job_editting._id}).limit(1).exec((err, job_editting) => {
-
-            if(err){
-                console.log(err)
-                res.json({
-                    result: "fail",
-                    data : {},
-                    message: `Error is ${err}`
-                })
-            }else{
-                if(job_editting.length > 0){
-                    let new_value = {
-                        nameCompany: req.body.nameCompany
-                    };
-
-
-                    Job.findOneAndUpdate(condition, {$set: new_value}, null, (err, updatedJob) =>{
-
-                        if(err){
-
-                            res.json ({
-                                result: 'fail',
-                                data: {},
-                                message: `Update fail ${err}`
-                            })
-                        }else {
-                            res.json({
-                                result: 'ok',
-                                data: updatedJob,
-                                count: updatedJob.length,
-                                message: 'Update data successflully'
-                            })
-                        }
-                    })
-                }else {
-                    res.json ({
-                        result: "fail",
-                        data : {},
-                        message: `Error is ${err}`
-                    })
-                }
+        console.log("sjsdfjsdfh")
+        console.log(req.body);
+        
+        job.update({
+            Name: `${req.body.Name}`,
+                CompanyName: req.body.CompanyName,
+                JobName: req.body.JobName,
+                DeadLine : req.body.DeadLine,
+                Quantity: req.body.Quantity,
+                Salary: req.body.Salary,
+                Exprence : req.body.Exprence,
+                Gender : req.body.Gender,
+                AddressWork: req.body.AddressWork,
+                LocalzoneWork: req.body.LocalzoneWork,
+                Description: req.body.Description,
+                Requirement: req.body.Requirement,
+                Benefit: req.body.Benefit,
+                Major: req.body.Major,
+                CompanyId: req.body.CompanyId,
+                Skill: req.body.Skill,
+                JobType : req.body.JobType
+        },{
+            where: {
+                Id: `${req.body.Id}`
             }
+        }).then(() => {
+            res.json({
+                result: "ok",
+                message: `Update succesfully`
+            })
         })
     }
+    
     delete(req, res){
-        const job_delete = {
-            _id: new mongoose.Types.ObjectId(`${req.body._id}`)
-        }
-        console.log(req.params._id);
-
-        Job.findByIdAndUpdate(req.params._id).exec((err, deleted) => {
-            if(err){
-                res.json ({
-                    result: 'fail',
-                    data: {},
-                    message: `Update fail ${err}`
-                })
-            }else{
-                res.json({
-                    result: 'ok',
-                    date: null,
-                    count: 0,
-                    message: 'Delete data successflully'
-                })
+        Job.destroy({
+            where: {
+                Id: `${req.query.Id}`
             }
+        }).then( () => {
+            res.json({
+                result: "ok",
+                message: `Delete succesfully`
+            })
         })
     }
 }

@@ -1,1 +1,199 @@
-jobs
+<div id="#company-page">
+    <div id="job-detail" class="col-9 align-center-page" style="background-color: white;padding-top: 5px;">
+        <div class="row" id="title-box-job">
+
+
+        </div>
+    </div>
+
+    <div class="col-9 align-center-page">
+        <div id="tab-company" class="container">
+            <ul class="tab-menu nav nav-pills">
+                <li class="active"><a href="#tab-info" data-toggle="tab">TIN TUYỂN DỤNG</a></li>
+                <li>
+                    <a id ="company-detail" target="_blank">CÔNG TY</a>
+                    
+                </li>
+                <li><a href="#" target="_blank">VIỆC
+                        LÀM CÙNG CÔNG TY</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-9 align-center-page" style="background-color: white;">
+        <div class="row" id="detail-box-job" style="padding-top: 20px;">
+
+        </div>
+    </div>
+</div>
+<script>
+    $("#job-detail").ready(function(){
+        getJobById();
+    })
+
+    function bindJobDetail(data){
+        $("#detail-box-job").append(`
+        <div class="col-md-8 col-sm-12" id="col-job-left">
+            <h2>Mô tả công việc</h2>
+            <div class="content-tab">
+                ${data.Descriptions}
+            </div>
+            <h2>Yêu cầu ứng viên</h2>
+            <div class="content-tab">
+               ${data.Requirement}
+            </div>
+            <h2>Quyền lợi được hưởng</h2>
+            <div class="content-tab">
+                ${data.Benifit}
+            </div>
+            <h2>Cách thức ứng tuyển</h2>
+            <div class="content-tab">
+                <p>Ứng viên nộp hồ sơ trực tuyến bằng cách bấm <strong class="text-highlight">Ứng tuyển ngay</strong>
+                    dưới
+                    đây.</p>
+                <div class="text-center">
+                    <div class="text-center">
+                        <p style="margin-bottom: 0px"><a
+                                href="#"
+                                class="btn btn-topcv-primary btn-apply">ỨNG TUYỂN NGAY</a></p>
+                        <p class="text-dark-gray">Hạn nộp hồ sơ: 13/12/2020</p>
+                    </div>
+                </div>
+            </div>
+            <div id="box-report-job">
+                <div class="box-content text-center">
+                    <div class="report text-report">
+                        <a
+                            href="javascript:showLoginPopup('https://www.topcv.vn/viec-lam/giao-vien-tieng-anh-giao-vu-hoc-vu/313698.html?report-form=1', 'Đăng nhập hoặc Đăng ký để phản ánh tin tuyển dụng này!')"><i
+                                class="icons8-warn text-danger"></i> Phản ánh tin tuyển dụng không chính xác</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-4 col-sm-12" id="col-job-right">
+            <div class="box_general" style="margin-bottom: 0px;">
+                <h2 class="text_ellipsis uppercase">THÔNG TIN TUYỂN DỤNG</h2>
+            </div>
+            <div id="box-info-job">
+                <div class="job-info-item">
+                    <strong>Mức lương: (VND)</strong>
+                    <span>
+                        <a class="text-highlight"
+                            href="#">
+                            ${data.Salary}
+                        </a>
+                    </span>
+                </div>
+                <div class="job-info-item">
+                    <strong>Hình thức làm việc: </strong>
+                    <span>${data.JobType} </span>
+                </div>
+                <div class="job-info-item">
+                    <strong>Số lượng cần tuyển: </strong> <span>${data.Quantity}</span>
+                </div>
+                <div class="job-info-item">
+                    <strong>Yêu cầu kinh nghiệm: </strong> <span>${data.Exprence}</span>
+                </div>
+                <div class="job-info-item">
+                    <strong>Yêu cầu giới tính: </strong> <span>${data.Gender}</span>
+                </div>
+
+                <div class="job-info-item" style="border-bottom: 0px;">
+                    <strong>Khu vực làm việc: </strong>
+                    <span>${data.Locallocation}</span>
+                </div>
+                <div class="job-info-item" style="border-bottom: 0px;">
+                    <strong>Địa điểm làm việc: </strong>
+                    <span>${data.AddressWork}</span>
+                </div>  
+            </div>
+        </div>
+        `)    
+        $("#company-detail").append(`
+            <p id="companyId" hidden>${data.CompanyId}</p>
+        `)
+    }
+
+    function bindJobTitle(data){
+        $('#title-box-job').append(`
+        <div class="col-sm-9"></div>
+            <div class="row" id="row-job-title">
+                <div class="col-sm-3">
+                    <div class="company-logo-wraper text-center">
+                        <a href="#" title="Công ty Giáo dục A+"><img class="company-logo" style="width: 146px; height: 180px;"
+                                src="/img/logo.png"
+                                alt=""></a>
+                    </div>
+                </div>
+                <div class="col-sm-9" style="margin-top: 10px;">
+                    <h1 class="job-title text-highlight bold text-uppercase" style="color:#00b14f;"> <a href="#"
+                            class="text-highlight" target="_blank">${data.JobName}</h1>
+                    <div class="company-title">
+                        <span><a href="#"
+                                class="text-dark-blue">${data.CompanyName}</a></span>
+                    </div>
+                    <div class="text-dark-gray" style="margin-bottom: 10px;">
+                        ${data.AddressWork};
+                    </div>
+                    <div class=" text-dark-gray  job-deadline">
+                        <i class="icons8-timer"></i> Hạn nộp hồ sơ: ${data.DeadLine}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 apply-area">
+            <div class="text-center">
+                <p><a href="javascript:showLoginPopup('https://www.topcv.vn/viec-lam/giao-vien-tieng-anh-giao-vu-hoc-vu/313698.html?apply-form=1', 'Đăng nhập hoặc Đăng ký để ứng tuyển công việc này!')"
+                        class="btn btn-topcv-primary btn-apply">ỨNG TUYỂN NGAY</a></p>
+                <div class="box-save-job job-notsave">
+                    <a class="btn save btn-default"
+                        href="javascript:showLoginPopup(null, 'Đăng nhập hoặc Đăng ký để lưu tin tuyển dụng')"><i
+                            class="fa fa-heart"></i> Lưu tin</a>
+                </div>
+            </div>
+        </div>
+        `)
+    }
+
+    //getJobDetail
+    function getJobById(){
+        data = null;
+        let params = new URLSearchParams(location.search);
+        jobId = params.get('Id')
+    $.ajax({
+        url: `/job/getById/${jobId}`,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result.data);
+            
+            data = result.data[0];
+            console.log(data);
+            
+            bindJobTitle(data);
+           bindJobDetail(data);
+            
+        },
+        error: function (e){
+            data = e;
+            return data;
+        }
+    })
+    
+    //event on company tab
+    $(document).on('click', '#company-detail', function(e) { 
+            data = $($(this).contents().get(1)).text();
+            console.log("dfndskgjkdfgjfdkg");
+            window.open(`/company/getCompanyById?Id=${data}`)
+
+    });
+
+
+}
+
+
+
+</script>

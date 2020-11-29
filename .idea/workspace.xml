@@ -16,26 +16,18 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a5af20f-193e-407d-92ae-22090e5df31d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/passport_aut.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/job.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/passport_aut/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/passport_aut/passport.init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/passport_aut/signup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resource/views/account/login.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resource/views/account/signup.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routers/auth.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/webservice/job.service.js" afterDir="false" />
+    <list default="true" id="0a5af20f-193e-407d-92ae-22090e5df31d" name="Default Changelist" comment="Adding sequelize, and Created Company">
+      <change afterPath="$PROJECT_DIR$/src/public/js/clientHandle/company/companyController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resource/views/adminLayout/admin-company/company.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controller/job.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/job.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sql.js" beforeDir="false" afterPath="$PROJECT_DIR$/database_sql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/company.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/company.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/js/clientHandle/Job/jobController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/js/clientHandle/Job/jobController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/views/adminLayout/admin-job/bestjob.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/views/adminLayout/admin-job/bestjob.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resource/views/adminLayout/admin.index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/views/adminLayout/admin.index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/job.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/job.router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/router.index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/router.index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/admin.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/admin.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/company.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/company.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webservice/company.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/webservice/company.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,16 +67,16 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.EditorConfig" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\app\model" />
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\img\template\credit" />
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\img\template\user1" />
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\plugins" />
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public" />
-      <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\css\template\plugins" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\New\HK3\De Tai\Source Code\Recruitment Management\src\public\plugins" />
@@ -169,6 +161,49 @@
       <workItem from="1601706058349" duration="711000" />
       <workItem from="1601709602386" duration="2496000" />
       <workItem from="1601712276775" duration="3597000" />
+      <workItem from="1601716326450" duration="774000" />
+      <workItem from="1601735818199" duration="2689000" />
+      <workItem from="1601791223347" duration="7063000" />
+      <workItem from="1601799121345" duration="3308000" />
+      <workItem from="1601808612671" duration="8444000" />
+      <workItem from="1601826692611" duration="7339000" />
+      <workItem from="1601896209188" duration="812000" />
+      <workItem from="1601996581812" duration="20000" />
+      <workItem from="1601997883656" duration="294000" />
+      <workItem from="1601998201912" duration="112000" />
+      <workItem from="1601998328383" duration="159000" />
+      <workItem from="1601998501593" duration="3000" />
+      <workItem from="1601998985295" duration="152000" />
+      <workItem from="1601999154131" duration="89000" />
+      <workItem from="1601999688942" duration="1333000" />
+      <workItem from="1602078308597" duration="5484000" />
+      <workItem from="1602089399791" duration="8001000" />
+      <workItem from="1602164729090" duration="16233000" />
+      <workItem from="1602253596268" duration="14068000" />
+      <workItem from="1602294795022" duration="468000" />
+      <workItem from="1602306998107" duration="2297000" />
+      <workItem from="1602393482508" duration="107000" />
+      <workItem from="1602394684055" duration="1235000" />
+      <workItem from="1602402343684" duration="699000" />
+      <workItem from="1602403442801" duration="850000" />
+      <workItem from="1602425320886" duration="2954000" />
+      <workItem from="1602900709016" duration="431000" />
+      <workItem from="1603283358870" duration="641000" />
+      <workItem from="1603287369161" duration="1307000" />
+      <workItem from="1603386086692" duration="1295000" />
+      <workItem from="1603472402172" duration="633000" />
+      <workItem from="1603603181258" duration="970000" />
+      <workItem from="1603622277871" duration="1575000" />
+      <workItem from="1603624172744" duration="989000" />
+      <workItem from="1603638214840" duration="1283000" />
+      <workItem from="1603640106922" duration="1000000" />
+      <workItem from="1603727835205" duration="637000" />
+      <workItem from="1604682067308" duration="476000" />
+      <workItem from="1604851502274" duration="1815000" />
+      <workItem from="1604853370505" duration="1754000" />
+      <workItem from="1604855184654" duration="666000" />
+      <workItem from="1604857186827" duration="1787000" />
+      <workItem from="1604859017676" duration="1786000" />
     </task>
     <task id="LOCAL-00001" summary="Add lib main express-main-layout&#10;main layout">
       <created>1600191663786</created>
@@ -212,7 +247,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601317365325</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add lib main express-main-layout&#10;main layout">
+      <created>1601716363467</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601716363467</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Adding sequelize, and Created Company">
+      <created>1602181367857</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1602181367857</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,13 +339,14 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add lib main express-main-layout&#10;main layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add lib main express-main-layout&#10;main layout" />
+    <MESSAGE value="Adding sequelize, and Created Company" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding sequelize, and Created Company" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="67" width="1089" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601314693457">
+    <state x="223" y="67" width="1089" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601998271195">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" width="1089" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1601314693457" />
+    <state x="223" y="67" width="1089" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1601998271195" />
     <state x="535" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600098604906">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -389,18 +439,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="510" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1601657529516" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1600017020290">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1601998437207">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600017020290" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1601998437207" />
     <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog" timestamp="1601264596720">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog/0.0.1536.824@0.0.1536.824" timestamp="1601264596720" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1601317383939">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1602181376673">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1601317383939" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602181376673" />
     <state x="320" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601313717796">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

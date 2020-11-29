@@ -175,4 +175,224 @@ navbar2
 
 
 
+h1.job-title {
+    margin-top: 0;
+    font-size: 24px;
+}
+.text-highlight {
+    color: #00b14f;
+}
+.bold {
+    font-weight: 700;
+}
+.text-dark-blue {
+    color: #212f3f;
+}
+
+a:hover {
+    color: #00b14f;
+    text-decoration: none;
+}
+
+/*Button Apply*/
+.apply-area {
+    padding-top: 2rem;
+}
+.apply-area .btn {
+    width: 180px;
+}
+.btn-topcv-primary {
+    background-color: #00b14f;
+    color: #fff;
+}
+.btn {
+    padding: 10px 20px;
+    font-weight: 700;
+}
+
+
+/*company tab*/
+.container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 750px;
+    width: 96%;
+}
+
+/*tab menu*/
+/*.tab-menu{
+    list-style: none;
+    height: 56.6px;
+    padding-left: 12rem;
+}
+.tab-menu li {
+    padding-left: 4rem;
+}*/
+
+#tab-company .nav-pills {
+    margin: 0;
+        margin-top: 13px;
+        margin-right: 0px;
+        margin-bottom: 13px;
+        margin-left: 0px;
+}
+#tab-company ul li a {
+    margin-right: 110px;
+    color: #666;
+
+}
+#tab-company ul li a {
+    border-radius: 0;
+    margin-top: 10px;
+
+    padding: 10px 20px 15px 10px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 13px;
+    padding-left: 10px;
+
+}
+
+#tab-company ul li a:hover {
+    background: 0 0;
+    color: #212f3f;
+    font-weight: 700;
+    border-bottom: 2px solid #212f3f;
+}
+
+#tab-company ul li.active > a {
+    background: 0 0;
+    color: #212f3f;
+    font-weight: 700;
+    border-bottom: 2px solid #212f3f;
+}
+
+.text_ellipsis {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+/*box right*/
+.box_general > h2 {
+    font-size: 17px;
+    margin: auto;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #00b14f;
+    border-radius: 3px 3px 0 0;
+    color: #fff;
+}
+
+#box-info-job {
+    padding: 0 10px;
+    border-bottom: 1px solid #ececec;
+    border-right: 1px solid #ececec;
+    border-left: 1px solid #ececec;
+}
+#box-info-job .job-info-item {
+    border-bottom: 1px solid #ececec;
+    padding: 15px;
+}
+
+#box-relate-jobs {
+    margin-top: 20px;
+}
+.box_general {
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    border-radius: 3px;
+    margin-bottom: 25px;
+}
+
+/*format for image*/
+.company-cover .container .cover-img {
+    width: 100%;
+    margin-top: 20px;
+}
+.img-container .img-to-fit {
+    flex: 1;
+    height: 100%;
+}
+.img-responsive {
+    max-width: 100%;
+    display: inline-block;
+}
+img {
+    background-size: cover;
+    vertical-align: middle;
+    border-style: none;
+}
+/*format job title*/
+.textoverflow {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+
+/*format company cover*/
+.company-cover {
+    background-color: #fff;
+    border-bottom: 1px solid #d0d0d0;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+
+/*format for cover band */
+.company-detail-overview {
+    margin: 15px auto 5px;
+    position: relative;
+}
+    /*format images band*/
+    .company-detail-overview #company-logo {
+        height: 175px;
+        width: 175px;
+        position: absolute;
+        top: -40px;
+    }
+    .company-detail-overview #company-logo {
+        border: 1px solid #efefef;
+        padding: 5px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+    }
+
+/*format company section*/
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/*format company detail*/
+    /*format content of company*/
+    .box-white {
+        background-color: #fff;
+    }
+    .box {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    /*format comnay detail rating*/
+
+    .box-company-info .col-right {
+        margin-top: 60px;
+    }
+    #box-review-company {
+        border: 1px solid #d9d9d9;
+    }
+    .box-white {
+        background-color: #fff;
+    }
+    .box {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+
 

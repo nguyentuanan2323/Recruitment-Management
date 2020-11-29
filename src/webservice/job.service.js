@@ -13,6 +13,13 @@ var job_controller = require('../app/controller/job.controller');
     function post(req, res, next){
         job_controller.post(req,res)
     }
+    function getById(req, res, next){
+        console.log(req);
+        job_controller.getById(req,res);
+    }
+
+    
+
 module.exports = job_controller;
 
 

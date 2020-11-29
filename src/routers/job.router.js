@@ -14,9 +14,14 @@ router.use('/put', ((req, res) => {
     jobService.put(req,res);
 }));
 router.use("/delete", ((req,res) =>{
-    console.log("jfklfhlksdjfklsdjfl")
     jobService.delete(req,res);
 }))
+
+router.use('/getById/:Id', (req, res) => {
+    console.log("vao get")
+	jobService.getById(req,res);
+})
+
 router.use('/',job.index);
 
 module.exports = router;

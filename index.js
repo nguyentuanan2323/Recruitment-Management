@@ -1,6 +1,7 @@
 const express = require('express'); // moudle express hổ trợ dụng nhanh trang web
 var path = require('path') //
 var connectDatabase = require('./database');
+var connectDatabaseSql = require('./database_sql');
 //get data from form
 var bodyParser = require('body-parser');
 const app = express() //tạp instance của module expres
@@ -31,8 +32,7 @@ var db = mongoose.connection;
 //Ràng buộc kết nối với sự kiện lỗi (để lấy ra thông báo khi có lỗi)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
-
+//=======================================================
 //log Http Request
 app.use(morgan('combined')) //thiết lập module chạy theo kiểu combined
 //expres layout
@@ -68,8 +68,13 @@ var initPassport = require('./src/passport_aut/passport.init');
 initPassport(passport);
 
 
-
-
+//test connect databaseSQL
+connectDatabaseSql.authenticate()
+    .then(() => {
+        console.log('Connection has been established successfully. hahahahaha');
+    }).catch(err => {
+    console.error('Unable to connect to the database:', err);
+});
 
 
 

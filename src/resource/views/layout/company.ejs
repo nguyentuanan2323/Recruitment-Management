@@ -1,0 +1,275 @@
+<div id="#companyDetail">
+    <div id="companyCover" class="company-cover">
+   
+    </div>
+
+    <div id="box-info" class="container" style="padding-top: 1.4rem;">
+        <div class="container" id="box-info"></div>
+        <div id="breadcrumb">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-highlight bold" href="https://www.topcv.vn/cong-ty">Danh sách
+                        Công ty</a></li>
+                <li class="breadcrumb-item text-dark-blue">Thông tin công ty &amp; tin tuyển dụng</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
+
+<script>
+
+    $("#companyDetail").ready(() => {
+        getCompanyById();
+    })
+
+
+    //bind data to coverCompany
+    function bindDataTocoverCompany(data) {
+        $("#companyCover").append(`
+        <div class="container" style="width: 100%;">
+        <img src="/img/coverCompany/companyCover.jpg" alt="" class="img-responsive cover-img" width="1024" height="490">
+        <div class="row company-detail-overview">
+            <div class="col-sm-9" style="width:75%;">
+                <div class="row" style="margin-right: -15px;
+            margin-left: -15px;">
+                    <div class="col-sm-3 hidden-xs">
+                        <div id="company-logo">
+                            <img src="/img/coverCompany/logodefaul.png"
+                                alt="#" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <h1 class="company-detail-name text-highlight">${data.Name}</h1>
+                        <a href="#"
+                            class="text-gray italic">${data.ProductBusiness}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div id="box-btn-follow">
+                    <a href="#"><button
+                            class="btn btn-topcv-primary pull-right">ĐÁNH GIÁ</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+        `)
+    }
+
+    function bindDataToCompanyDetail(data) {
+        $("").append(` <div class="row box-company-info">
+        <div class="col-md-8 col-sm-7 col-left">
+            <div class="left-box-title">
+                <h2>GIỚI THIỆU CÔNG TY</h2>
+            </div>
+            <div class="box box-white">
+                <p><b><u>GIỚI THIỆU
+                        </u></b></p>
+                <p>${data.Introduce}</p>
+
+                <p><b><u>SẢN PHẨM KINH DOANH
+                        </u></b></p>
+                <p>${data.ProductBusiness}</p>
+
+                <p><b><u>DỊCH VỤ
+                        </u></b></p>
+                <p>${data.Service}</p>
+
+                <p><b><u>CHÍNH SÁCH PHÚC LỢI
+                        </u></b></p>
+                <p>${data.PolicyBenifit}</p>
+
+            </div>
+            <div class="left-box-title" id="recruitment-tỉtle">
+                <h2>TUYỂN DỤNG</h2> <span id="recruitment-job-count" class="label label-default">3</span>
+            </div>
+            <div class="box box-white" id="box-recruiment">
+                <div class="row job-item">
+                    <h5>
+                        <a target="_blank"
+                            href="https://www.topcv.vn/viec-lam/chuyen-vien-tu-van-luong-cung-5-15-trieu-tai-da-nang/312253.html">Chuyên
+                            Viên Tư Vấn Lương Cứng 5-15 Triệu Tại Đà Nẵng</a>
+                    </h5>
+                    <div class="col-md-3 col-sm-6 job-deadline job-meta-data  text-dark-gray ">
+                        <i class="icons8-timer text-highlight"></i> 31/12/2020&nbsp;
+                    </div>
+                    <div class="col-md-3 col-sm-6 job-salary job-meta-data text-dark-gray job">
+                        <i class="icons8-dollar-sign text-highlight"></i> 5-15 triệu
+                    </div>
+                    <div class="col-md-3 col-sm-6 job-location job-meta-data text-dark-gray">
+                        <i class="icons8-map-pin text-highlight"></i> Đà Nẵng
+                    </div>
+                    <div class="col-md-3 col-sm-6 job-type job-meta-data text-dark-gray">
+                        <i class="icons8-briefcase text-highlight"></i> Toàn thời gian
+                    </div>
+                    <div class="col-sm-12" id="company-common-job">
+                        <span>
+                            <a href="https://www.topcv.vn/tim-viec-lam-kinh-doanh-ban-hang-c10001"
+                                class="btn btn-sm btn-default text-dark-gray">Kinh doanh / Bán hàng</a>
+                        </span>
+                        <span>
+                            <a href="https://www.topcv.vn/tim-viec-lam-dich-vu-khach-hang-c10014"
+                                class="btn btn-sm btn-default text-dark-gray">Dịch vụ khách hàng</a>
+                        </span>
+                        <span>
+                            <a href="https://www.topcv.vn/tim-viec-lam-tu-van-c10045"
+                                class="btn btn-sm btn-default text-dark-gray">Tư vấn</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="row job-item">
+                    <h5>
+                        <a target="_blank"
+                            href="https://www.topcv.vn/viec-lam/nhan-vien-kinh-doanh-luong-cung-5-15-trieu-tai-da-nang/287838.html">Nhân
+                            Viên Kinh Doanh Lương Cứng 5-15 Triệu Tại Đà Nẵng</a>
+                    </h5>
+                    <div class="col-md-3 col-sm-6 job-deadline job-meta-data  text-dark-gray ">
+                        <i class="icons8-timer text-highlight"></i> 25/11/2020&nbsp;
+                    </div>
+                    <div class="col-md-3 col-sm-6 job-salary job-meta-data text-dark-gray job">
+                        <i class="icons8-dollar-sign text-highlight"></i> 5-15 triệu
+                    </div>
+                    <div class="col-md-3 col-sm-6 job-location job-meta-data text-dark-gray">
+                        <i class="icons8-map-pin text-highlight"></i> Đà Nẵng
+                    </div>
+                    <div class="col-md-3 col-sm-6 job-type job-meta-data text-dark-gray">
+                        <i class="icons8-briefcase text-highlight"></i> Toàn thời gian
+                    </div>
+                    <div class="col-sm-12" id="company-common-job">
+                        <span>
+                            <a href="https://www.topcv.vn/tim-viec-lam-kinh-doanh-ban-hang-c10001"
+                                class="btn btn-sm btn-default text-dark-gray">Kinh doanh / Bán hàng</a>
+                        </span>
+                        <span>
+                            <a href="https://www.topcv.vn/tim-viec-lam-bat-dong-san-c10007"
+                                class="btn btn-sm btn-default text-dark-gray">Bất động sản</a>
+                        </span>
+                        <span>
+                            <a href="https://www.topcv.vn/tim-viec-lam-ngan-hang-tai-chinh-c10033"
+                                class="btn btn-sm btn-default text-dark-gray">Ngân hàng / Tài chính</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="row job-item" style="border-bottom: 0px;">
+                    <h5>
+                        <a target="_blank"
+                            href="https://www.topcv.vn/viec-lam/chuyen-vien-kinh-doanh-luong-cung-5-15-trieu-tai-da-nang/302514.html">Chuyên
+                            VIên Kinh Doanh Lương Cứng 5-15 Triệu Tại Đà Nẵng</a>
+                    </h5>
+                    <div class="col-md-3 col-sm-6 job-deadline job-meta-data  text-dark-gray ">
+                        <i class="icons8-timer text-highlight"></i> 22/11/2020&nbsp;
+                    </div>
+                    <div class="col-md-3 col-sm-6 job-salary job-meta-data text-dark-gray job">
+                        <i class="icons8-dollar-sign text-highlight"></i> 5-15 triệu
+                    </div>
+                    <div class="col-md-3 col-sm-6 job-location job-meta-data text-dark-gray">
+                        <i class="icons8-map-pin text-highlight"></i> Đà Nẵng
+                    </div>
+                    <div class="col-md-3 col-sm-6 job-type job-meta-data text-dark-gray">
+                        <i class="icons8-briefcase text-highlight"></i> Toàn thời gian
+                    </div>
+                    <div class="col-sm-12" id="company-common-job">
+                        <span>
+                            <a href="https://www.topcv.vn/tim-viec-lam-kinh-doanh-ban-hang-c10001"
+                                class="btn btn-sm btn-default text-dark-gray">Kinh doanh / Bán hàng</a>
+                        </span>
+                        <span>
+                            <a href="https://www.topcv.vn/tim-viec-lam-bat-dong-san-c10007"
+                                class="btn btn-sm btn-default text-dark-gray">Bất động sản</a>
+                        </span>
+                        <span>
+                            <a href="https://www.topcv.vn/tim-viec-lam-tu-van-c10045"
+                                class="btn btn-sm btn-default text-dark-gray">Tư vấn</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-5 col-right">
+            <div class="box box-white" id="box-review-company">
+                <h4 class="box-title text-center text-dark-blue bold">ĐÁNH GIÁ</h4>
+                <div class="text-center">
+                    <p style="color: #999999;">Hiện chưa có đánh giá nào. Hãy là người đầu tiên đưa ra đánh giá</p>
+                    <div id="default-star" class="active-star-hover" onmouseleave="leaveHover()">
+                        <i class="icons8-star-2" id="active-star-hover-1" onmouseover="starHover(1)"></i>
+                        <i class="icons8-star-2" id="active-star-hover-2" onmouseover="starHover(2)"></i>
+                        <i class="icons8-star-2" id="active-star-hover-3" onmouseover="starHover(3)"></i>
+                        <i class="icons8-star-2" id="active-star-hover-4" onmouseover="starHover(4)"></i>
+                        <i class="icons8-star-2" id="active-star-hover-5" onmouseover="starHover(5)"></i>
+                    </div>
+                    <div style="color: #999999;" id="show-text-hover">Đánh giá của bạn về công ty này?</div>
+                    <div style="margin-top: 20px;" class="text-center">
+                        <a href="https://www.topcv.vn/cong-ty/cong-ty-co-phan-dat-xanh-mien-trung/28301/danh-gia/tao-moi"
+                            class="btn btn-topcv-primary">ĐÁNH GIÁ NGAY</a>
+                    </div>
+                </div>
+            </div>
+            <div class="box box-white" id="box-detail-info-company">
+                <h4 class="box-title text-center text-dark-blue bold">THÔNG TIN CÔNG TY</h4>
+                <p class="text-dark-gray">
+                    <i class="icons8-map-pin text-highlight"></i>52-54 Võ Văn Kiệt, Phường An Hải Đông, Quận Sơn Trà,
+                    Thành Phố Đà Nẵng
+                </p>
+                <div class="company-map">
+                    <iframe style="border:0"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCVgO8KzHQ8iKcfqXgrMnUIGlD-piWiPpo&amp;q=52-54+Vo+Van+Kiet,Phuong+An+Hai+Dong,Quan+Son+Tra,Thanh+Pho+Da+Nang&amp;zoom=15&amp;language=vi"
+                        allowfullscreen="" width="100%" height="270" frameborder="0">
+                    </iframe>
+                </div>
+            </div>
+            <div class="box box-white" id="box-share-info-company">
+                <h4 class="box-title text-center text-dark-blue bold">CHIA SẺ CÔNG TY TỚI BẠN BÈ</h4>
+                <div class="text-center">
+                    <div class="share-btns">
+                        <a href="http://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.topcv.vn%2Fcong-ty%2Fcong-ty-co-phan-dat-xanh-mien-trung%2F28301.html"
+                            class="btn btn-primary" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.topcv.vn%2Fcong-ty%2Fcong-ty-co-phan-dat-xanh-mien-trung%2F28301.html"
+                            class="btn btn-info" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.topcv.vn%2Fcong-ty%2Fcong-ty-co-phan-dat-xanh-mien-trung%2F28301.html"
+                            class="btn btn-danger" target="_blank"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+           
+        </div>
+    </div>
+        `)
+
+    }
+
+   
+
+    //bind data to companyDetail
+    function getCompanyById(){
+        data = null;
+        let params = new URLSearchParams(location.search);
+        companyId = params.get('Id')
+    $.ajax({
+        url: `/company/getById/${companyId}`,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result.data);
+            
+            data = result.data[0];
+            console.log(data);
+            
+            bindDataTocoverCompany(data);
+            bindDataToCompanyDetail(data);
+            
+        },
+        error: function (e){
+            data = e;
+            return data;
+        }
+    })
+}
+
+
+</script>
