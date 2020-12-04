@@ -60,9 +60,11 @@ module.exports = function(passport){
 
     /* GET userseson. */
     router.get('/Checkstatus', function(req, res) {
+        console.log(req.user);
         if(req.isAuthenticated()){
             res.json({
                 user: req.user.username
+                
             })
         }else if (req.isUnauthenticated()){
             res.json({
