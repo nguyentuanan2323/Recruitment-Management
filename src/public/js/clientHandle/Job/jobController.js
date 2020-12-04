@@ -1,22 +1,12 @@
 
-<<<<<<< HEAD
 $("#bestjob").ready( function(){
    $.ajax({
        url: "/job/get",
-=======
-$("#bestjob ").ready( function(){
-   $.ajax({
-       url: "/Job/get",
->>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
        type: "GET",
        contentType: "application/json;charset=utf-8",
        dataType: "json",
        success: function (result) {
-<<<<<<< HEAD
            bindDataToTableJob(result.data, "#bestjob")
-=======
-           bindDataToTableJob(result.data, "bestjob")
->>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
        },
        error: function (){
            console.log("Lỗi không thể load dữ liệu")
@@ -26,7 +16,6 @@ $("#bestjob ").ready( function(){
 /////////////////////////////////////////
 //utill function
 
-<<<<<<< HEAD
 
 
 /////////////////////////////////////////
@@ -161,52 +150,6 @@ function bindDataToTableJob(data, tableid) {
     });
 
 
-=======
-//bind data to table
-
-function bindDataToTableJob(data, tableid) {
-    console.log("data")
-    /*$(`#bestjob tbody tr`).ready().each(data, function (index, value){
-        console.log(value);
-        $(`${tableid} tbody tr`).appendTo(
-            `
-                <tr>
-                                        <td>${value.nameCompany}</td>
-                                        <td>${value.exprence}</td>
-                                        <td>${value.addressWork}</td>
-                                        <td>${value.localzoneWork}</td>
-                                        <td>${value.description}</td>
-                                        <td>${value.requirement}</td>
-                                        <td>${value.name}</td>
-                </tr> 
-            `
-        )
-    });*/
-    $(`#bestjob`).ready( function (){
-        data.forEach(function (element) {
-            $(`#bestjob tbody`).append(
-                `<tr style="height: 50px">
-                                     
-                                             <td >${element.name}</td>
-                                            <td >${element.nameCompany}</td>
-                                            <td >${element.exprence}</td>
-                                            <td >${element.addressWork}</td>
-                                            <td >${element.localzoneWork}</td>
-                                            <td style="max-width: 200px;"> ${element.description}</td>
-                                            <td style="max-width: 200px;">${element.requirement}</td>
-                                            <td >${element.benefit}</td>
-                                            <td >${element.major}</td>
-                                             <td >${element.skill}</td>
-                                            <td >${element.jobType}</td>
-                </tr> 
-            `
-            )
-        } );
-
-
-    })
-
->>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
 
 }
 
