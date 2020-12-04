@@ -33,52 +33,6 @@ class JobController {
             count: jobdetail.length
         })
     }
-<<<<<<< HEAD
-=======
-    post(req, res) {
-        const job_temp = {
-            name: req.body.name
-        };
-        Job.find(job_temp).limit(1).exec((err, job_temps) =>{
-            if(err){
-
-            }else{
-                if(job_temp.length > 0){
-
-                }
-                const newJob = new Job({
-                    name: req.body.name,
-                    nameCompany: req.body.nameCompany,
-                    deadLine : req.body.deadLine,
-                    quantity: req.body.quantity,
-                    salary: req.body.salary,
-                    exprence : req.body.exprence,
-                    gender : req.body.gender,
-                    addressWork: req.body.addressWork,
-                    localzoneWork: req.body.localzoneWork,
-                    description: req.body.description,
-                    requirement: req.body.requirement,
-                    benefit: req.body.benefit,
-                    major: req.body.major,
-                    skill: req.body.skill,
-                    jobType : req.body.jobType
-                });
-                newJob.save((err, newjob) => {
-                    if(err){
-                        res.json({
-                            result: "faild",
-                            data: {},
-                            message: `Error is:  ${err}`
-                        });
-                    }
-                    else{
-                        res.json({
-                            result: 'ok',
-                            data: newjob,
-                            message: "Insert new job successfully"
-                        });
-                    }
->>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
 
     post(req, res) {
         
@@ -148,7 +102,6 @@ class JobController {
     }
     
     delete(req, res){
-<<<<<<< HEAD
         Job.destroy({
             where: {
                 Id: `${req.query.Id}`
@@ -159,28 +112,6 @@ class JobController {
                 message: `Delete succesfully`
             })
         })
-=======
-        const job_delete = {
-            _id: new mongoose.Types.ObjectId(`${req.body._id}`)
-        }
-        console.log(req.params._id);
-        Job.findOneAndDelete({_id: mongoose.Types.ObjectId(req.body._id)}, (err) => {
-           if(err){
-               res.json({
-                   result: "failed",
-                   message: `Can not delete because error is ${err}`
-               })
-               return;
-           }
-           else {
-               res.json({
-                   result: "ok",
-                   message: "Delete succeses fully"
-               })
-           }
-        });
-
->>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
     }
 }
 
