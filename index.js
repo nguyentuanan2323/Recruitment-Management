@@ -10,7 +10,7 @@ var morgan = require('morgan') //module hổ trợ viêc refesh lại code khi s
 var expresLayout = require("express-ejs-layouts")
                                 //module general để sử dụng reder các
                                 //layout và partial layout
-const port = 3000 //Khai báo port sử dụng cho server nodejs
+const port = process.env.PORT //Khai báo port sử dụng cho server nodejs
 //cấu hình body parser
 // parse application/json
 app.use(bodyParser.json());
@@ -72,11 +72,7 @@ var initPassport = require('./src/passport_aut/passport.init');
 initPassport(passport);
 
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
 //test connect databaseSQL
 connectDatabaseSql.authenticate()
     .then(() => {
