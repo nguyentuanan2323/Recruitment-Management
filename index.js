@@ -72,8 +72,11 @@ var initPassport = require('./src/passport_aut/passport.init');
 initPassport(passport);
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
 //test connect databaseSQL
 connectDatabaseSql.authenticate()
     .then(() => {

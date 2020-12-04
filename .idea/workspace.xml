@@ -16,6 +16,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="0a5af20f-193e-407d-92ae-22090e5df31d" name="Default Changelist" comment="Adding sequelize, and Created Company">
       <change afterPath="$PROJECT_DIR$/src/public/js/clientHandle/company/companyController.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/resource/views/adminLayout/admin-company/company.ejs" afterDir="false" />
@@ -28,6 +29,26 @@
       <change beforePath="$PROJECT_DIR$/src/routers/admin.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/admin.router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routers/company.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/company.router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/webservice/company.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/webservice/company.service.js" afterDir="false" />
+=======
+    <list default="true" id="0a5af20f-193e-407d-92ae-22090e5df31d" name="Default Changelist" comment="Add lib main express-main-layout&#10;main layout">
+      <change afterPath="$PROJECT_DIR$/database_sql.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/controller/company.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/model/company.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/clientHandle/Job/jobController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/js/clientHandle/Job/utill.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routers/company.router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/webservice/company.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/job.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/job.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/views/adminLayout/admin-job/bestjob.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/views/adminLayout/admin-job/bestjob.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/views/adminLayout/admin.index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/views/adminLayout/admin.index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/admin.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/admin.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/job.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/job.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/router.index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/router.index.js" afterDir="false" />
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +199,7 @@
       <workItem from="1601999688942" duration="1333000" />
       <workItem from="1602078308597" duration="5484000" />
       <workItem from="1602089399791" duration="8001000" />
+<<<<<<< HEAD
       <workItem from="1602164729090" duration="16233000" />
       <workItem from="1602253596268" duration="14068000" />
       <workItem from="1602294795022" duration="468000" />
@@ -204,6 +226,9 @@
       <workItem from="1604855184654" duration="666000" />
       <workItem from="1604857186827" duration="1787000" />
       <workItem from="1604859017676" duration="1786000" />
+=======
+      <workItem from="1602164729090" duration="16103000" />
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
     </task>
     <task id="LOCAL-00001" summary="Add lib main express-main-layout&#10;main layout">
       <created>1600191663786</created>
@@ -254,6 +279,7 @@
       <option name="project" value="LOCAL" />
       <updated>1601716363467</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00008" summary="Adding sequelize, and Created Company">
       <created>1602181367857</created>
       <option name="number" value="00008" />
@@ -262,6 +288,9 @@
       <updated>1602181367857</updated>
     </task>
     <option name="localTasksCounter" value="9" />
+=======
+    <option name="localTasksCounter" value="8" />
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,10 +476,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog/0.0.1536.824@0.0.1536.824" timestamp="1601264596720" />
+<<<<<<< HEAD
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1602181376673">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602181376673" />
+=======
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1601716381067">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1601716381067" />
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
     <state x="320" y="141" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601313717796">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

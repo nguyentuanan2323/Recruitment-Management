@@ -1,5 +1,6 @@
 
 var company = require('../model/company');
+<<<<<<< HEAD
 const { create } = require('../model/job');
 
 class CompanyController {
@@ -11,6 +12,17 @@ class CompanyController {
 
         //get information company
         console.log("Infomation")
+=======
+
+class CompanyController {
+    index(req, res){
+        //render something to client
+    }
+    //created
+    post(req, res){
+        //get information company
+        console.log("HAHHAHHAH")
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
         console.log(req.body);
         const compnanyAdding = company.build({
             Name: req.body.Name,
@@ -19,6 +31,7 @@ class CompanyController {
             ProductBusiness: req.body.ProductBusiness,
             Service: req.body.Service,
             ImagesLink: req.body.ImagesLink,
+<<<<<<< HEAD
             VideoLink: req.body.VideoLink,
             Address: req.body.VideoLink
         });
@@ -40,6 +53,15 @@ class CompanyController {
         }).then(function (result){
             console.log("Abc");
             console.log(result[1])
+=======
+            VideoLink: req.body.VideoLink
+        });
+        company.findOrCreate({
+            where: {
+                Name: compnanyAdding.getDataValue('Name')
+            }
+        }).then(function (result){
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
             if(!result[1]){
                 res.json({
                     result: "faild",
@@ -57,6 +79,7 @@ class CompanyController {
                 })
             }
         })
+<<<<<<< HEAD
        
            
     }
@@ -124,6 +147,11 @@ class CompanyController {
            })
        })
     }
+=======
+    }
+
+
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
 }
 
 

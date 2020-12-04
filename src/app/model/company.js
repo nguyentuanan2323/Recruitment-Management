@@ -29,17 +29,23 @@ const Company = db.define('Company', {
     ImagesLink: {
         type: DataTypes.STRING(5000)
     },
+<<<<<<< HEAD
     LogoLink: {
         type: DataTypes.STRING(5000)
     },
+=======
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
     VideoLink: {
         type: DataTypes.STRING(5000)
     },
     PolicyBenifit: {
         type: DataTypes.STRING(5000)
+<<<<<<< HEAD
     },
     Address: {
         type: DataTypes.STRING(4000)
+=======
+>>>>>>> 0c89f12f1dff22779ee60dac9587728ac3bb5e7e
     }
 },{
     freezeTableName: true,
