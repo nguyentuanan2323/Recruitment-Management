@@ -57,6 +57,10 @@ app.use(expressSession(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
+
+
 // Sử dụng middleware flash do connect-flash cung cấp để lưu trữ tin nhắn trong session
 // và hiển thị trong các template
 var flash = require('connect-flash');
@@ -66,6 +70,8 @@ app.use(flash());
 // Initialize Passport
 var initPassport = require('./src/passport_aut/passport.init');
 initPassport(passport);
+
+
 
 
 //test connect databaseSQL

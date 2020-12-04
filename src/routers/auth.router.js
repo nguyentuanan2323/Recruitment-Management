@@ -13,7 +13,7 @@ var isAuthenticated = function (req, res, next) {
 
 module.exports = function(passport){
 
-
+    
     /* GET login page. */
     router.get('/Login', function(req, res) {
         // Display the Login page with any flash message, if any
@@ -27,6 +27,12 @@ module.exports = function(passport){
         failureRedirect: 'Login',
         failureFlash : true
     }));
+
+    /* Handle Login POST */
+    router.get('/Logout', function(req, res){
+        req.logout();
+        res.redirect('/');
+      });
 
     /* GET Registration Page */
     router.get('/Signup', function(req, res){
@@ -50,6 +56,20 @@ module.exports = function(passport){
     router.get('/signout', function(req, res) {
         req.logout();
         res.redirect('/');
+    });
+
+    /* GET userseson. */
+    router.get('/Checkstatus', function(req, res) {
+        if(req.isAuthenticated()){
+            res.json({
+                user: req.user.username
+            })
+        }else if (req.isUnauthenticated()){
+            res.json({
+                user: "null"
+            })
+        }
+        
     });
 
     return router;

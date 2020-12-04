@@ -80,6 +80,8 @@ function bindDataToTableCompany(data, tableid) {
         $(`${tableid}`).dxDataGrid({
             dataSource: data,
             keyExpr: "Id",
+            columnResizingMode: "nextColumn",
+            allowColumnResizing: true,
             filterRow: { visible: true },
             searchPanel: { visible: true },
             groupPanel: { visible: true },

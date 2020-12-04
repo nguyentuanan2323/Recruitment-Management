@@ -19,7 +19,8 @@ class CompanyController {
             ProductBusiness: req.body.ProductBusiness,
             Service: req.body.Service,
             ImagesLink: req.body.ImagesLink,
-            VideoLink: req.body.VideoLink
+            VideoLink: req.body.VideoLink,
+            Address: req.body.VideoLink
         });
         console.log(compnanyAdding);
         company.findOrCreate({
@@ -33,7 +34,8 @@ class CompanyController {
                 ProductBusiness: req.body.ProductBusiness,
                 Service: req.body.Service,
                 ImagesLink: req.body.ImagesLink,
-                VideoLink: req.body.VideoLink
+                VideoLink: req.body.VideoLink,
+                Address: req.body.VideoLink
             }
         }).then(function (result){
             console.log("Abc");
@@ -71,7 +73,8 @@ class CompanyController {
             Service: req.body.Service,
             PolicyBenifit: req.body.PolicyBenifit,
             ImagesLink: req.body.ImagesLink,
-            VideoLink: req.body.VideoLink
+            VideoLink: req.body.VideoLink,
+            Address: req.body.Address,
         },{
             where: {
                 Id: `${req.body.Id}`

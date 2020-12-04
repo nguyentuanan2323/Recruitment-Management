@@ -37,6 +37,9 @@ const Company = db.define('Company', {
     },
     PolicyBenifit: {
         type: DataTypes.STRING(5000)
+    },
+    Address: {
+        type: DataTypes.STRING(4000)
     }
 },{
     freezeTableName: true,

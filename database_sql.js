@@ -4,8 +4,8 @@ const Sequelize = require('sequelize');
 
 
 
-module.exports = new Sequelize('Recuirement', 'sa', 'corbinnguyen1996', {
-    host: '127.0.0.1',
+module.exports = new Sequelize('Recuirement', 'corbinnguyen', '123@Tuanan1996', {
+    host: 'recuirement.database.windows.net',
     dialect: 'mssql',
     port:1433,
     dialectOptions: {
@@ -13,7 +13,7 @@ module.exports = new Sequelize('Recuirement', 'sa', 'corbinnguyen1996', {
         useUTC: false, //for reading from database
         dateStrings: true,
         typeCast: true,
-        instanceName: 'MSSQLSERVER124234324'
+        instanceName: 'recuirement.database.windows.net'
     },
     timezone: '+07:00'
 });

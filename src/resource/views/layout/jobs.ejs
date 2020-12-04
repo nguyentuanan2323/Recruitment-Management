@@ -145,8 +145,11 @@
         </div>
         <div class="col-sm-3 apply-area">
             <div class="text-center">
-                <p><a href="javascript:showLoginPopup('https://www.topcv.vn/viec-lam/giao-vien-tieng-anh-giao-vu-hoc-vu/313698.html?apply-form=1', 'Đăng nhập hoặc Đăng ký để ứng tuyển công việc này!')"
-                        class="btn btn-topcv-primary btn-apply">ỨNG TUYỂN NGAY</a></p>
+                <p>
+                    <a href="javascript:ungTuyen('https://www.topcv.vn/viec-lam/giao-vien-tieng-anh-giao-vu-hoc-vu/313698.html?apply-form=1', 'Đăng nhập hoặc Đăng ký để ứng tuyển công việc này!')"
+                        class="btn btn-topcv-primary btn-apply">ỨNG TUYỂN NGAY
+                    </a>
+                </p>
                 <div class="box-save-job job-notsave">
                     <a class="btn save btn-default"
                         href="javascript:showLoginPopup(null, 'Đăng nhập hoặc Đăng ký để lưu tin tuyển dụng')"><i
@@ -185,11 +188,37 @@
     
     //event on company tab
     $(document).on('click', '#company-detail', function(e) { 
-            data = $($(this).contents().get(1)).text();
+            data = $($(this).contents().get(2)).text();
             console.log("dfndskgjkdfgjfdkg");
             window.open(`/company/getCompanyById?Id=${data}`)
 
     });
+
+    function applyToJob() {
+        //Check data button ung tuyen truoc khi print
+        data = {
+            UserId: $("#userId").val(),
+            JobId: $("#jobId").val()
+        }
+        $.ajax({
+            url: `/Apply`,
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(data),
+            success: function (result) {
+               if(result.user != 'null'){
+                    $("#username-hello").append(`Xin Chào ${result.user}`)
+               }else{
+                $("#username-hello").append(`Vui lòng <a href="Account/Login">Đăng nhập</a>`)
+               }
+            },
+            error: function (e){
+                console.log(e);
+            }
+         })
+    
+    };
 
 
 }

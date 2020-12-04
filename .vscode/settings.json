@@ -1,0 +1,8 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/dd844383-5efb-4917-8d44-0c721c593ed8/resourceGroups/recuriment-app/providers/Microsoft.Web/sites/recruitment-hub",
+    "appService.deploySubpath": ".",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
+}

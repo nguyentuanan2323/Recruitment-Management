@@ -285,6 +285,7 @@ a:hover {
     color: #fff;
 }
 
+
 #box-info-job {
     padding: 0 10px;
     border-bottom: 1px solid #ececec;
@@ -393,6 +394,17 @@ img {
         padding: 20px;
         margin-bottom: 20px;
     }
+/*format box company .col right*/
+    .box-company-info .col-right {
+        margin-top: 47px;
+    }
 
+
+    /*format for redirect admin page*/
+    .dropdown-item:hover {
+      
+        text-decoration: none;
+        background-color: #416c97;
+    }
 
 
