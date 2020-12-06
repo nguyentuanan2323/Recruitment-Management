@@ -7,58 +7,68 @@ class CandidateApplyController {
        res.render("layout/company.ejs")
     }*/
     //created
-    post(req, res){
-
-        //get information company
-        console.log("Infomation")
-        console.log(req.body);
-        const andidateApplyAdding = candidateApply.build({
-            UserId: req.body.UserId,
-            JobId: req.body.JobId,
-            Status: req.body.Status,
-            Rating: req.body.Rating,
-            Remark: req.body.Remark
-        });
-
-        console.log(andidateApplyAdding);
-        candidateApply.findOrCreate({
-            where: {
-                UserId: req.body.Name,
-                JobId: req.body.JobId
-            },
-            defaults: {
-                UserId: req.body.UserId,
+    post(req, res) {
+        console.log("vao duoc post");
+        if (req.isAuthenticated()) {
+            //get information candidate
+            console.log("Infomation")
+            console.log(req.body.JobId);
+            const candidateApplyAdding = candidateApply.build({
+                UserId: `${req.user._id}`,
                 JobId: req.body.JobId,
                 Status: req.body.Status,
                 Rating: req.body.Rating,
                 Remark: req.body.Remark
-            }
-        }).then(function (result){
-            console.log("Abc");
-            console.log(result[1])
-            if(!result[1]){
-                res.json({
-                    result: "faild",
+            });
+            console.log("candidateApplyAdding")
+            console.log(candidateApplyAdding);
+            candidateApply.findOrCreate({
+                where: {
+                    UserId: `${req.user._id}`,
+                    JobId: req.body.JobId
+                },
+                defaults: {
+                    UserId: `${req.user._id}`,
+                    JobId: req.body.JobId,
+                    Status: req.body.Status,
+                    Rating: req.body.Rating,
+                    Remark: req.body.Remark
+                }
+            }).then(function (result) {
+                console.log("Abc");
+                console.log(result[1])
+                if (!result[1]) {
+                    res.json({
+                        result: "duplicate",
                         data: {},
-                    message: `Your Apply this job already!`
-                })
-            }
-            else {
-                console.log(andidateApplyAdding.getDataValue('Name'))
-                candidateApply.create(andidateApplyAdding)
-                res.json({
-                    result: "ok",
-                    data: andidateApplyAdding,
-                    message: "Apply successfully"
-                })
-            }
-        })
-       
-           
+                        message: `Your Apply this job already!`
+                    })
+                }
+                else {
+                    
+                    candidateApply.create(candidateApplyAdding)
+                    res.json({
+                        result: "ok",
+                        data: candidateApplyAdding,
+                        message: "Apply successfully"
+                    })
+                }
+            })
+        }else{
+            console.log("not login2");
+            res.json({
+                result: "erorr",
+                data: null,
+                message: "You are not login"
+            })
+        }
+
+
+
     }
 
-    put(req, res){
-     
+    put(req, res) {
+
         console.log(req.body);
         candidateApply.update({
             UserId: req.body.UserId,
@@ -66,7 +76,7 @@ class CandidateApplyController {
             Status: req.body.Status,
             Rating: req.body.Rating,
             Remark: req.body.Remark
-        },{
+        }, {
             where: {
                 Id: `${req.body.Id}`
             }
@@ -87,33 +97,62 @@ class CandidateApplyController {
         })
     }
 
-    async getByUserId(req, res){
-       
-        console.log(req.param.Id);
-        const candidateApply = await candidateApplies.findAll({
-            where: {
-                UserId : req.params.UserId
+    async getByUserId(req, res) {
+
+        console.log("Request aaaaaaaaaaa")
+
+        //console.log(req.user._id);
+        //console.table(req);
+        //console.log(req.user);
+
+
+
+        if (typeof req.user == "undefined") {
+
+            res.json({
+                result: 'erorr',
+                data: { info: "You are not login" },
+            })
+        }
+        else {
+            const candidateApplies = await candidateApply.findAll({
+                where: {
+                    JobId: req.params.Id,
+                    UserId: `${req.user._id}`
+                }
+            })
+            console.log("candidateApplies")
+            console.log(candidateApplies);
+
+            if(candidateApplies.length == 0){
+                res.json({
+                    result: 'notapply',
+                    data: candidateApplies,
+                    count: candidateApplies.length
+                })
+            }else{
+                res.json({
+                    result: 'apply',
+                    data: candidateApplies,
+                    count: candidateApplies.length
+                })
             }
-        })
-        res.json({
-            result: 'ok',
-            data: candidateApply,
-            count: candidateApply.length
-        })
+
+        }
     }
 
 
-    delete(req, res){
+    delete(req, res) {
         candidateApply.destroy({
-           where: {
-               Id: `${req.query.Id}`
-           }
-       }).then( () => {
-           res.json({
-               result: "ok",
-               message: `Delete succesfully`
-           })
-       })
+            where: {
+                Id: `${req.query.Id}`
+            }
+        }).then(() => {
+            res.json({
+                result: "ok",
+                message: `Delete succesfully`
+            })
+        })
     }
 }
 

@@ -168,8 +168,9 @@
             success: function (result) {
                if(result.user != 'null'){
                     $("#username-hello").append(`Xin Chào ${result.user}`)
+                    $("#username-hello").append(`<span id="userId" hidden="true">${result._Id}</span>`)
                }else{
-                $("#username-hello").append(`Vui lòng <a href="Account/Login">Đăng nhập</a>`)
+                $("#username-hello").append(`Vui lòng <a href="/Account/Login">Đăng nhập</a>`)
                }
             },
             error: function (e){

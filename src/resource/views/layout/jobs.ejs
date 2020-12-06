@@ -11,8 +11,8 @@
             <ul class="tab-menu nav nav-pills">
                 <li class="active"><a href="#tab-info" data-toggle="tab">TIN TUYỂN DỤNG</a></li>
                 <li>
-                    <a id ="company-detail" target="_blank">CÔNG TY</a>
-                    
+                    <a id="company-detail" target="_blank">CÔNG TY</a>
+
                 </li>
                 <li><a href="#" target="_blank">VIỆC
                         LÀM CÙNG CÔNG TY</a></li>
@@ -27,11 +27,11 @@
     </div>
 </div>
 <script>
-    $("#job-detail").ready(function(){
+    $("#job-detail").ready(function () {
         getJobById();
     })
 
-    function bindJobDetail(data){
+    function bindJobDetail(data) {
         $("#detail-box-job").append(`
         <div class="col-md-8 col-sm-12" id="col-job-left">
             <h2>Mô tả công việc</h2>
@@ -110,13 +110,13 @@
                 </div>  
             </div>
         </div>
-        `)    
+        `)
         $("#company-detail").append(`
             <p id="companyId" hidden>${data.CompanyId}</p>
         `)
     }
 
-    function bindJobTitle(data){
+    function bindJobTitle(data) {
         $('#title-box-job').append(`
         <div class="col-sm-9"></div>
             <div class="row" id="row-job-title">
@@ -131,8 +131,10 @@
                     <h1 class="job-title text-highlight bold text-uppercase" style="color:#00b14f;"> <a href="#"
                             class="text-highlight" target="_blank">${data.JobName}</h1>
                     <div class="company-title">
-                        <span><a href="#"
-                                class="text-dark-blue">${data.CompanyName}</a></span>
+                        <span><a
+                                class="text-dark-blue" id="userId" name="userId">${data.CompanyName}</a></span>
+                        <span><a id="jobId" hidden="true" name ="jobId"
+                                class="text-dark-blue">${data.Id}</a></span>
                     </div>
                     <div class="text-dark-gray" style="margin-bottom: 10px;">
                         ${data.AddressWork};
@@ -145,10 +147,8 @@
         </div>
         <div class="col-sm-3 apply-area">
             <div class="text-center">
-                <p>
-                    <a href="javascript:ungTuyen('https://www.topcv.vn/viec-lam/giao-vien-tieng-anh-giao-vu-hoc-vu/313698.html?apply-form=1', 'Đăng nhập hoặc Đăng ký để ứng tuyển công việc này!')"
-                        class="btn btn-topcv-primary btn-apply">ỨNG TUYỂN NGAY
-                    </a>
+                <p id="button-ungtuyen">
+                   
                 </p>
                 <div class="box-save-job job-notsave">
                     <a class="btn save btn-default"
@@ -160,69 +160,132 @@
         `)
     }
 
+
     //getJobDetail
-    function getJobById(){
+    function getJobById() {
         data = null;
         let params = new URLSearchParams(location.search);
         jobId = params.get('Id')
-    $.ajax({
-        url: `/job/getById/${jobId}`,
-        type: "GET",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            console.log(result.data);
-            
-            data = result.data[0];
-            console.log(data);
-            
-            bindJobTitle(data);
-           bindJobDetail(data);
-            
-        },
-        error: function (e){
-            data = e;
-            return data;
-        }
-    })
-    
-    //event on company tab
-    $(document).on('click', '#company-detail', function(e) { 
+        $.ajax({
+            url: `/job/getById/${jobId}`,
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                console.log(result.data);
+
+                data = result.data[0];
+                console.log(data);
+
+                bindJobTitle(data);
+                bindJobDetail(data);
+                checkStausApply(data.Id);
+
+
+            },
+            error: function (e) {
+                data = e;
+                return data;
+            }
+        })
+
+        //event on company tab
+        $(document).on('click', '#company-detail', function (e) {
             data = $($(this).contents().get(2)).text();
             console.log("dfndskgjkdfgjfdkg");
             window.open(`/company/getCompanyById?Id=${data}`)
 
-    });
+        });
 
-    function applyToJob() {
+        //event on button apply
+        $(document).on('click', '#applyToJob', function (e) {
+            data = null;
+            let params = new URLSearchParams(location.search);
+            jobId = params.get('Id')
+            console.log(jobId);
+            apply(jobId)
+
+        });
+
+
+
+
+
+    }
+</script>
+
+<script>
+
+    function checkStausApply(jobId) {
         //Check data button ung tuyen truoc khi print
-        data = {
-            UserId: $("#userId").val(),
-            JobId: $("#jobId").val()
-        }
+        //console.log($(this).val());
+
+
+
+        console.log(data);
         $.ajax({
-            url: `/Apply`,
-            type: "POST",
+            url: `/Apply/getById/${jobId}`,
+            type: "GET",
             contentType: "application/json;charset=utf-8",
-            dataType: "json",
-            data: JSON.stringify(data),
             success: function (result) {
-               if(result.user != 'null'){
-                    $("#username-hello").append(`Xin Chào ${result.user}`)
-               }else{
-                $("#username-hello").append(`Vui lòng <a href="Account/Login">Đăng nhập</a>`)
-               }
+                console.log("ket qua");
+                console.log(result);
+                if (result.result == "erorr") {
+                    bindNotApplyButton('button-ungtuyen');
+                }
+                else if (result.result == "notapply") {
+                    bindNotApplyButton('button-ungtuyen');
+                } else if (result.result == "apply") {
+                    bindApplyButton('button-ungtuyen');
+                }
             },
-            error: function (e){
+            error: function (e) {
                 console.log(e);
             }
-         })
-    
+        })
+
     };
+    function bindNotApplyButton(applyIdButton) {
+        $(`#${applyIdButton}`).empty().append(`
+            <a href="#" id="applyToJob" class="btn btn-topcv-primary btn-apply">ỨNG TUYỂN NGAY
+                    </a>
+        `)
+    }
 
+    function bindApplyButton(applyIdButton) {
+        $(`#${applyIdButton}`).empty().append(`
+            <a href="#" id="applyToJob" class="btn btn-topcv-primary btn-apply">ĐÃ ỨNG TUYỂN
+                    </a>
+        `)
+    }
 
-}
+    function apply(jobId) {
+        console.log(JSON.stringify(jobId))
+        dataJobId = {
+            JobId: `${jobId}`
+        }
+        $.ajax({
+            url: `/Apply/post`,
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(dataJobId),
+            success: function (result) {
+                console.log("Result ung tuyen");
+                console.log(result);
+                if (result.result == "erorr") {
+                    window.open(`/Account/Login`)
 
+                } else if (result.result == "ok") {
+                    checkStausApply(result.data.JobId);
+                } else if (result.ready == "duplicate") {
+                    DevExpress.ui.notify(e, "Bạn đã ứng tuyển việc này rồi!", 200);
+                }
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        })
+    }
 
 
 </script>
