@@ -76,8 +76,7 @@ const Job = db.define('Job', {
         primaryKey: true,
     },
     CompanyName: {
-        type: DataTypes.STRING(1000),
-        allowNull: true
+        type: DataTypes.STRING(1000)
     },
     JobName:{
         type: DataTypes.STRING
