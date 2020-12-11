@@ -10,7 +10,7 @@ var morgan = require('morgan') //module hổ trợ viêc refesh lại code khi s
 var expresLayout = require("express-ejs-layouts")
                                 //module general để sử dụng reder các
                                 //layout và partial layout
-const port = 3000//Khai báo port sử dụng cho server nodejs
+const port = process.env.PORT//Khai báo port sử dụng cho server nodejs
 //process.env.PORT
 //cấu hình body parser
 
