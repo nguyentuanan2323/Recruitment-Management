@@ -1,6 +1,7 @@
 
 var candidateApply = require('../model/candidateapply');
-
+const { model } = require('../model/user');
+const user_controller = require("./user.controller")
 
 class CandidateApplyController {
     /*index(req, res){
@@ -154,6 +155,40 @@ class CandidateApplyController {
             })
         })
     }
+
+    async getCandidateApply(req, res){
+        const candidateAppliesUser = await candidateApply.findAll({
+            attributes: ['UserId'],
+            where: {
+                JobId : req.params.Id
+            }
+        });
+        const datauser = [];
+        candidateAppliesUser.forEach(element => {
+            datauser.push(element.dataValues.UserId);
+        });
+        
+        console.log("dhfdfjksdjfl");
+       
+        console.log(datauser);
+        
+        const usserId = {
+            "_id" : { "$in": datauser}
+        }
+       
+        
+        const employee_apply_promise = user_controller.getuser(usserId, null, null);
+        employee_apply_promise.then(data_promise => {
+            res.json({
+                result: "ok",
+                data: data_promise
+            })
+        })
+        
+        
+
+    }
+
 }
 
 

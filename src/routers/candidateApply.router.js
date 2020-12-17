@@ -24,5 +24,9 @@ router.use('/getById/:Id', (req, res) => {
     candidateApply_Service.getByUserId(req, res);
 })
 
+router.use('/Candidate/:Id', (req, res) => {
+    candidateApply_Service.getCandidateApply(req, res);
+})
+
 
 module.exports = router;

@@ -407,4 +407,48 @@ img {
         background-color: #416c97;
     }
 
+/*--------------------css for usser profile-----------------------*/
+element {
+    left: 0px;
+    width: 100%;
+    background-size: cover;
+    padding-bottom: 100%;
+    background-image: url("https://www.topcv.vn/images/avatar-default.jpg");
+}
+.avatar {
+   
+    border-radius: 50%;
+    top: 1rem;
+    overflow: hidden;
+    -webkit-box-shadow: 0 3px 12px -8px rgba(0,0,0,.75);
+    -moz-box-shadow: 0 3px 12px -8px rgba(0,0,0,.75);
+    box-shadow: 0 3px 12px -8px rgba(0,0,0,.75);
+}
+.cover {
+    position: relative;
+    width: 100%;
+    max-height: 300px;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.img-responsive {
+    max-width: 100%;
+    display: inline-block;
+}
+.nopad {
+    padding: 0 !important;
+}
+.panel-body {
+    padding: 15px;
+}
+
+
 

@@ -127,6 +127,7 @@ function bindDataToTableJob(data, tableid) {
             },
             columns: [
                 { dataField: 'JobName'},
+                { dataField: 'Id'},
                 { dataField: 'CompanyName'},
                 { dataField: 'DeadLine', dataType: "date",displayFormat: "shortdate"},
                 { dataField: 'Quantity'},
@@ -143,7 +144,43 @@ function bindDataToTableJob(data, tableid) {
                 { dataField: 'Skill'},
                 { dataField: 'JobType'},
               
-            ]
+            ],
+            masterDetail: {
+                enabled: true,
+                template: function(container, options) { 
+                    var currentjobData = options.data;
+                    //.text(currentjobData.Id + " " + currentjobData.JobName + "'s Tasks:")
+                    $("<div>")
+                        .addClass("master-detail-caption")
+                        .text("Thông tin các ứng viên đã ứng tuyển vào việc:" + currentjobData.JobName)
+                        .appendTo(container);
+                    
+                    $("<div>")
+                        .dxDataGrid({
+                            columnAutoWidth: true,
+                            showBorders: true,
+                            columns: [{
+                                dataField: "fullname",
+                                caption: "Full Name"
+                            }, {
+                                dataField: "username",
+                                caption: "Email"
+                            },{
+                                type: "buttons",
+                                buttons: [{
+                                    text: "Xem chi tiết",
+                                    onClick: function (e) {
+                                        console.log(e);
+                                        openProfileById(e.row.data._id);
+                                    }
+                                }]
+                            }
+                    
+                        ],
+                            dataSource: getCandicateByJobId(currentjobData.Id)
+                        }).appendTo(container);
+                }
+            }
             
             
         });
@@ -151,5 +188,36 @@ function bindDataToTableJob(data, tableid) {
 
 
 
+}
+
+function openProfileById(userId){
+    url = `/User/?_id=${userId}`;
+    var win = window.open(url, '_blank');
+    win.focus();
+}
+
+function getCandicateByJobId(jobId) {
+    
+    employeeappy = null;
+    dataJobId = {
+        JobId: `${jobId}`
+    }
+    $.ajax({
+        url: `/Apply/Candidate/${jobId}`,
+        type: "GET",
+        'async': false,
+        contentType: "application/json;charset=utf-8",
+        data: JSON.stringify(dataJobId),
+        success: function (result) {
+           
+            employeeappy = result.data;
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+    console.log("Data Eployee")
+    console.log(employeeappy);
+    return employeeappy;
 }
 

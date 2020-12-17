@@ -1,0 +1,334 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="info-profile" class="profile-header"><input type="file" accept="image/*" id="avatar_file"
+                    style="display: none;"> <input type="file" accept="image/*" id="cover_file" style="display: none;">
+                <div class="panel panel-default">
+                    <div class="panel-body nopad cover"><img src="https://www.topcv.vn/images/profile_default_cover.jpg"
+                            alt="Cover" class="img-responsive"
+                            style="min-height: 150px; min-width: 150px; width: 100%;">
+                        <!---->
+                    </div>
+                    <div class="panel-body" style="position: relative;">
+                        <div class="row" style="flex-wrap: unset;">
+
+                            <div class="col-md-3 col-xs-6" style="max-width: 15%;">
+                                <div style="padding: 5px; position: relative;">
+                                    <div class="avatar"
+                                        style="left: 0px; background-size: cover; padding-bottom: 100%; background-image: url(&quot;https://www.topcv.vn/images/avatar-default.jpg&quot;);">
+                                        <!---->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-xs-5">
+                                <div class="row">
+                                    <!---->
+                                    <div class="col-xs-12 col-md-3">
+                                        <div class="profile-name" id="profile-name" style="padding-top: 6.3em;"></div>
+                                        <p class="position-name"></p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6" style="padding-top: 6.3em;" >
+                                        <button id="btnchinhsuathongtin" type="button" hidden="true" class="btn btn-default" data-toggle="modal"
+                                            data-target="#modal-default">
+                                            Chỉnh sửa thông tin cá nhân</button>
+                                        </button>
+                                        <!---->
+                                    </div>
+                                </div>
+                            </div>
+                            <!---->
+                        </div>
+                        <!---->
+                    </div>
+                    <!---->
+                </div>
+
+            </div>
+            <!---->
+
+            <div class="modal fade" id="modal-default">
+                <div class="modal-dialog" style="max-width: 70%;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Chỉnh sửa thông tin cá nhân</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Giới thiệu</label>
+                                <input type="text" hidden="true" class="form-control" id="id" placeholder="Giới thiệu">
+                                <input type="text" class="form-control" id="introduce" placeholder="Giới thiệu">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Giới tính</label>
+                                <input type="text" class="form-control" id="gender" placeholder="Giới tính">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tuổi</label>
+                                <input type="text" class="form-control" id="age" placeholder="Tuổi">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Học vấn</label>
+                                <input type="text" class="form-control" id="education" placeholder="Học vấn">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Chứng chỉ</label>
+                                <input type="text" class="form-control" id="certificate" placeholder="Chứng chỉ">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Các dự án đã tham gia</label>
+                                <input type="text" class="form-control" id="project"
+                                    placeholder="Các dự án đã tham gia">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Kinh nghiệm</label>
+                                <input type="text" class="form-control" id="exprence" placeholder="Kinh nghiệm">
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" id="saveprofile" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+
+            <div class="row" id="infomation-profile">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function getUserProfileById() {
+        data = null;
+        let params = new URLSearchParams(location.search);
+        console.log(params);
+
+        userId = params.get('_id')
+        console.log(params.get('_id'));
+        $.ajax({
+            url: `/User/getById/${userId}`,
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                console.log(result.data);
+
+                binddataToProfile(result.data);
+
+            },
+            error: function (e) {
+                data = e;
+                console.log(e);
+            }
+        })
+    }
+
+    function binddataToProfile(data) {
+        $("#infomation-profile").ready(function () {
+            $('#infomation-profile').append(`
+            <div class="col-md-6 col-sm-7 col-left">
+                    <div class="left-box-title">
+                        <h2>GIỚI THIỆU</h2>
+                    </div>
+                    <div class="box box-white">
+                        <div id="iduser" hidden="true">${data._id}</div>
+                        <p id="profile-gioithieu">${data.introduce}
+                        </p>
+                    </div>
+
+                    <div class="left-box-title">
+                        <h2>Thông tin cơ bản</h2>
+                    </div>
+                    <div class="box box-white">
+                        <p id="profile-thongtincoban">Giới tính: ${data.gender}, ${data.age} Tuổi
+                        </p>
+                    </div>
+                    <div class="left-box-title">
+                        <h2>Học Vấn</h2>
+                    </div>
+                    <div class="box box-white">
+                        <p id="profile-hocvan">${data.education}
+                        </p>
+                    </div>
+
+
+
+
+
+                </div>
+                <div class="col-md-6 col-sm-7 col-right">
+                    <div class="left-box-title">
+                        <h2>Chứng chỉ</h2>
+                    </div>
+                    <div class="box box-white">
+                        <p id="profile-chungchi">${data.certificate}
+                        </p>
+                    </div>
+                    <div class="left-box-title">
+                        <h2>Các dự án đã tham gia</h2>
+                    </div>
+                    <div class="box box-white">
+                        <p id="profile-duan">${data.project}
+                        </p>
+                    </div>
+                    <div class="left-box-title">
+                        <h2>Kinh nghiệm</h2>
+                    </div>
+                    <div class="box box-white">
+                        <p id="profile-kinhnghiem">${data.exprence}
+                        </p>
+                    </div>
+                </div>
+            `)
+        })
+        $("#profile-name").ready(function () {
+            $("#profile-name").append(data.fullname);
+           
+        })
+        $("#userid").ready(function () {
+           checkIsOwnner();
+           
+        })
+
+    }
+
+    function getDataProfile() {
+        let params = new URLSearchParams(location.search);
+        console.log(params);
+        userId = params.get('_id')
+        var dataprofile = null;
+        $.ajax({
+            url: `/User/getById/${userId}`,
+            type: "GET",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                console.log(result.data);
+
+                dataprofile = result.data
+
+            },
+            error: function (e) {
+                data = e;
+                console.log(e);
+            }
+        })
+        return dataprofile;
+    }
+
+
+
+    $(document).on('shown.bs.modal', "#modal-default", function () {
+
+
+
+        
+
+        var dataprofilemodal = getDataProfile();
+
+        console.log(dataprofilemodal);
+        $("#id").val(dataprofilemodal._id);
+        $("#introduce").val(dataprofilemodal.introduce);
+        $("#gender").val(dataprofilemodal.gender);
+        $("#age").val(dataprofilemodal.age);
+        $("#education").val(dataprofilemodal.education);
+        $("#certificate").val(dataprofilemodal.certificate);
+        $("#project").val(dataprofilemodal.project);
+        $("#exprence").val(dataprofilemodal.exprence);
+    });
+
+    $("#saveprofile").on('click', function (){
+        var data =new Object();
+        data.id = $("#id").val();
+        data.introduce = $("#introduce").val();
+        data.gender = $("#gender").val();
+        data.age = $("#age").val();
+        data.education = $("#education").val();
+        data.certificate = $("#certificate").val();
+        data.project = $("#project").val();
+        data.exprence = $("#exprence").val();
+        
+        console.log(data);
+        updateUserProfile(data);
+        $('#modal-default').modal('hide');
+        getDataProfile();
+
+    })
+
+    function checkIsOwnner( ) {
+        $.ajax({
+            url: `/Account/Checkstatus`,
+            type: "GET",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                userid = $("#iduser").text();
+
+                useridrl =  userid.replace(/\n/, ""); //try this 
+                console.log();
+               if(result.test._id == useridrl){
+                    $('#btnchinhsuathongtin').attr('hidden', 'false');
+                    //$('#btnchinhsuathongtin ').attr('hidden', 'false');
+                    $('#btnchinhsuathongtin').removeAttr('hidden');
+               }else{
+                    //do not thing
+               }
+            },
+            error: function (e){
+                console.log(e);
+            }
+         })
+    }
+
+    function updateUserProfile(dataprofile){
+        $.ajax({
+            url: `/User/put`,
+            type: "PUT",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data:JSON.stringify(dataprofile),
+            success: function (result) {
+                console.log(result.data);
+                
+              //$('#btnchinhsuathongtin').
+
+            },
+            error: function (e) {
+                data = e;
+                console.log(e);
+            }
+        })
+    }
+
+
+
+    
+
+
+
+
+
+    // A $( document ).ready() block.
+    $(document).ready(function () {
+        getUserProfileById();
+    });
+</script>

@@ -17,4 +17,9 @@ function getByUserId(req, res, next){
     candidateApply_controller.getByUserId(req,res);
 }
 
+function getByUserId(req, res, next){
+    console.log(req);
+    candidateApply_controller.getCandidateApply(req,res);
+}
+
 module.exports = candidateApply_controller;
