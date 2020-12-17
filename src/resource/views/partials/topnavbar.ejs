@@ -140,12 +140,16 @@
                     <span id="username-hello" class="dropdown-header"></span>
                     <div class="dropdown-divider"></div>
                     <a href="/RecuirementManagement/company" class="dropdown-item">
-                        <i class="fa fa-building mr-2" id="username"></i> Quản lí Công ty hahah
+                        <i class="fa fa-building mr-2" id="username"></i> Quản lí Công ty
                         
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="RecuirementManagement/Checkstatus" class="dropdown-item">
                         <i class="fa fa-newspaper mr-2"></i> Quản lí tin tuyển dụng
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="" id="manager-profile" class="dropdown-item">
+                        <i class="fa fa-user-circle mr-2"></i> Quản lí thông tin cá nhân
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="/Account/Logout" class="dropdown-item">
@@ -160,18 +164,22 @@
 </nav>
 <script>
     function checkIsAuthenticated() {
+        
         $.ajax({
             url: `/Account/Checkstatus`,
             type: "GET",
+            async: false,
             contentType: "application/json;charset=utf-8",
             dataType: "json",
             success: function (result) {
+                debugger
                if(result.user != 'null'){
                     $("#username-hello").append(`Xin Chào ${result.user}`)
                     $("#username-hello").append(`<span id="userId" hidden="true">${result._Id}</span>`)
                }else{
                 $("#username-hello").append(`Vui lòng <a href="/Account/Login">Đăng nhập</a>`)
                }
+               $('#manager-profile').attr("href", `/User/?_id=${result.test._id}`);
             },
             error: function (e){
                 console.log(e);
@@ -181,6 +189,7 @@
     };
 
     $("#user-function").bind('ClassChanged', checkIsAuthenticated());
+
 
    
         
