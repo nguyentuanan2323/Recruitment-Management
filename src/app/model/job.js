@@ -69,7 +69,7 @@ var DataTypes = require('sequelize/lib/data-types');
 const db = require('../../../database_sql');
 
 const Job = db.define('Job', {
-    Id:{
+    Id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
@@ -78,17 +78,17 @@ const Job = db.define('Job', {
     CompanyName: {
         type: DataTypes.STRING(1000)
     },
-    JobName:{
+    JobName: {
         type: DataTypes.STRING
     },
-    DeadLine:{
+    DeadLine: {
         type: DataTypes.DATEONLY
     },
-    Quantity : {
+    Quantity: {
         type: DataTypes.INTEGER
     },
     Salary: {
-        type : DataTypes.FLOAT
+        type: DataTypes.FLOAT
     },
     Exprence: {
         type: DataTypes.STRING(5000)
@@ -102,30 +102,30 @@ const Job = db.define('Job', {
         type: DataTypes.STRING(5000)
     },
     CompanyId: {
-        type : DataTypes.INTEGER
+        type: DataTypes.INTEGER
     },
     Locallocation: {
-        type : DataTypes.STRING(5000)
-    },
-    Descriptions : {
         type: DataTypes.STRING(5000)
     },
-    Requirement : {
+    Descriptions: {
         type: DataTypes.STRING(5000)
     },
-    Benifit : {
-        type : DataTypes.STRING(5000)
-    },
-    Major : {
-        type : DataTypes.STRING(5000)
-    },
-    Skill : {
+    Requirement: {
         type: DataTypes.STRING(5000)
     },
-    JobType : {
+    Benifit: {
+        type: DataTypes.STRING(5000)
+    },
+    Major: {
+        type: DataTypes.STRING(5000)
+    },
+    Skill: {
+        type: DataTypes.STRING(5000)
+    },
+    JobType: {
         type: DataTypes.ENUM(['Full Time', 'Parttime'])
     }
-},{
+}, {
     freezeTableName: true,
     timestamps: false
 });

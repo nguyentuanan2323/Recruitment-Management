@@ -1,5 +1,5 @@
 
-$("#tablecompany").ready( function(){
+$("#tablecompany").ready(function () {
     $.ajax({
         url: "/company/get",
         type: "GET",
@@ -8,7 +8,7 @@ $("#tablecompany").ready( function(){
         success: function (result) {
             bindDataToTableCompany(result.data, "#tablecompany")
         },
-        error: function (e){
+        error: function (e) {
             console.log(e);
             console.log("Lỗi không thể load dữ liệu")
         }
@@ -18,7 +18,7 @@ $("#tablecompany").ready( function(){
 /////////////////////////////////////////
 //utill function
 //delete function
-function deteteCompanyById(id){
+function deteteCompanyById(id) {
     $.ajax({
         url: `/company/delete?Id=${id}`,
         type: "DELETE",
@@ -27,14 +27,14 @@ function deteteCompanyById(id){
         success: function (result) {
             console.log("Xoa thanh cong")
         },
-        error: function (e){
+        error: function (e) {
             console.log(e);
             console.log("xoa that bai")
         }
     })
 }
 //update function
-function updateCompany(Id,data){
+function updateCompany(Id, data) {
     data.Id = Id;
     $.ajax({
         url: `/company/put`,
@@ -46,7 +46,7 @@ function updateCompany(Id,data){
             console.log("Xoa thanh cong")
             DevExpress.ui.notify("update thành công", "success", 200);
         },
-        error: function (e){
+        error: function (e) {
             console.log(e);
             console.log("xoa that bai")
             DevExpress.ui.notify(e, "error", 200);
@@ -54,18 +54,20 @@ function updateCompany(Id,data){
     })
 }
 
-function createCompany(data){
+function createCompany(data) {
+    console.log("lần 1")
     $.ajax({
         url: `/company/post`,
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
+        async: false,
         data: data,
         success: function (result) {
             console.log("Thêm Thành công")
             DevExpress.ui.notify("Thêm mới thành công", "success", 200);
         },
-        error: function (e){
+        error: function (e) {
             console.log(e);
             console.log("Thêm thất bại")
             DevExpress.ui.notify(e, "error", 200);
@@ -76,7 +78,7 @@ function createCompany(data){
 //bind data to table
 
 function bindDataToTableCompany(data, tableid) {
-    $(function() {
+    $(function () {
         $(`${tableid}`).dxDataGrid({
             dataSource: data,
             keyExpr: "Id",
@@ -89,17 +91,18 @@ function bindDataToTableCompany(data, tableid) {
             columnFixing: {
                 enabled: true
             },
-            onRowRemoving : function (e){
+            onRowRemoving: function (e) {
                 deteteCompanyById(e.data.Id);
                 DevExpress.ui.notify("Xóa thành công", "success", 200);
             },
-            onRowUpdating: function(e) {
-               
+            onRowUpdating: function (e) {
+
                 console.log(e);
                 updateCompany(e.oldData.Id, e.newData);
-                  
+
             },
-            onRowInserting: function(e) {
+            onRowInserting: function (e) {
+                console.log("Event on rows Inserting")
                 console.log(e);
                 createCompany(JSON.stringify(e.data))
             },

@@ -17,7 +17,7 @@
                         <div class="container-fluid">
                             <div id='row-bestjob' class="row">
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -45,30 +45,31 @@
     <!-- /.card -->
 </div>
 <script>
-    $('#row-bestjob').ready(function(){
+    $('#row-bestjob').ready(function () {
         $.ajax({
-                url: "/job/get",
-                type: "GET",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (result) {
-                    bindData(result.data, 'row-bestjob');
-                  
-                },
-                error: function (){
-                    console.log("Lỗi không thể load dữ liệu")
-                }
-         })
-        
+            url: "/job/get",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                bindData(result.data, 'row-bestjob');
+
+            },
+            error: function () {
+                console.log("Lỗi không thể load dữ liệu")
+            }
+        })
 
 
 
-       
+
+
     })
 
-   
-    function bindData(data, domId){
-        data.forEach(function(item, index){
+
+    function bindData(data, domId) {
+        data.forEach(function (item, index) {
+            console.log(item)
             $(`#${domId}`).append(` <div class="col-md-4 col-sm-6 feature-job">
                                     <div class="feature-job-item">
                                         <div class="row">
@@ -104,7 +105,7 @@
                                                                 </div>
                                                                 <div class="col-xs-6" style="margin-left: 2em">
                                                                     <div class="address text-dark-gray">
-                                                                        <i class="fa fa-map-marked text-highlight"></i> ${item.LocalzoneWork}
+                                                                        <i class="fa fa-map-marked text-highlight"></i> ${item.Locallocation}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -116,22 +117,22 @@
                                         </div>
                                     </div>
                                 </div>`)
-                                
-                             
-                                
+
+
+
         });
-        
+
     }
-        $(document).on('click', '#hyperlink-job', function(e) { 
-            data = $($(this).contents().get(1)).text();
-            console.log("dfndskgjkdfgjfdkg");
-            window.open(`/Job/getJobById?Id=${data}`)
+    $(document).on('click', '#hyperlink-job', function (e) {
+        data = $($(this).contents().get(1)).text();
+        console.log("dfndskgjkdfgjfdkg");
+        window.open(`/Job/getJobById?Id=${data}`)
 
-        });
+    });
 
-        
-        
-    
-    
+
+
+
+
 
 </script>

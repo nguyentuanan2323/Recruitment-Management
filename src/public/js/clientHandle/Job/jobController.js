@@ -1,17 +1,17 @@
 
-$("#bestjob").ready( function(){
-   $.ajax({
-       url: "/job/get",
-       type: "GET",
-       contentType: "application/json;charset=utf-8",
-       dataType: "json",
-       success: function (result) {
-           bindDataToTableJob(result.data, "#bestjob")
-       },
-       error: function (){
-           console.log("Lỗi không thể load dữ liệu")
-       }
-   })
+$("#bestjob").ready(function () {
+    $.ajax({
+        url: "/job/get",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            bindDataToTableJob(result.data, "#bestjob")
+        },
+        error: function () {
+            console.log("Lỗi không thể load dữ liệu")
+        }
+    })
 })
 /////////////////////////////////////////
 //utill function
@@ -21,7 +21,7 @@ $("#bestjob").ready( function(){
 /////////////////////////////////////////
 //utill function
 //delete function
-function deteteJobById(id){
+function deteteJobById(id) {
     $.ajax({
         url: `/job/delete?Id=${id}`,
         type: "DELETE",
@@ -30,20 +30,20 @@ function deteteJobById(id){
         success: function (result) {
             console.log("Xoa thanh cong")
         },
-        error: function (e){
+        error: function (e) {
             console.log(e);
             console.log("xoa that bai")
         }
     })
 }
 //update function
-function updateJob(Id,data){
+function updateJob(Id, data) {
 
     data.Id = Id;
-    if(data.DeadLine != null){        
+    if (data.DeadLine != null) {
         data.DeadLine = convert(data.DeadLine);
     }
-    
+
     console.log("vmsdklgjklfdjgfkldgj");
     console.log(data.DeadLine)
     $.ajax({
@@ -57,7 +57,7 @@ function updateJob(Id,data){
             console.log("Cap nhat thanh cong")
             DevExpress.ui.notify("update thành công", "success", 200);
         },
-        error: function (e){
+        error: function (e) {
             console.log(e);
             console.log("Cap Nhat that bai")
             console.log(convert(data.DeadLine));
@@ -66,7 +66,7 @@ function updateJob(Id,data){
     })
 }
 //create function
-function createJob(data){
+function createJob(data) {
     $.ajax({
         url: `/job/post`,
         type: "POST",
@@ -77,7 +77,7 @@ function createJob(data){
             console.log("Thêm Thành công")
             DevExpress.ui.notify("Thêm mới thành công", "success", 200);
         },
-        error: function (e){
+        error: function (e) {
             console.log(e);
             console.log("Thêm thất bại")
             DevExpress.ui.notify(e, "error", 200);
@@ -92,7 +92,7 @@ function createJob(data){
 
 function bindDataToTableJob(data, tableid) {
     console.log(data)
-    $(function() {
+    $(function () {
         $(`${tableid}`).dxDataGrid({
             dataSource: data,
             filterRow: { visible: true },
@@ -102,17 +102,17 @@ function bindDataToTableJob(data, tableid) {
             columnFixing: {
                 enabled: true
             },
-            onRowRemoving : function (e){
+            onRowRemoving: function (e) {
                 deteteJobById(e.data.Id);
                 DevExpress.ui.notify("Xóa thành công", "success", 200);
             },
-            onRowUpdating: function(e) {
-               console.log("t")
+            onRowUpdating: function (e) {
+                console.log("t")
                 console.log(e);
                 updateJob(e.oldData.Id, e.newData);
-                  
+
             },
-            onRowInserting: function(e) {
+            onRowInserting: function (e) {
                 console.log(e);
                 createJob(JSON.stringify(e.data))
             },
@@ -126,35 +126,35 @@ function bindDataToTableJob(data, tableid) {
                 }
             },
             columns: [
-                { dataField: 'JobName'},
-                { dataField: 'Id'},
-                { dataField: 'CompanyName'},
-                { dataField: 'DeadLine', dataType: "date",displayFormat: "shortdate"},
-                { dataField: 'Quantity'},
-                { dataField: 'Salary'},
-                { dataField: 'CompanyId'},
-                { dataField: 'Exprence'},
-                { dataField: 'Gender'},
-                { dataField: 'AddressWork'},
-                { dataField: 'LocalzoneWork'},
-                { dataField: 'Description'},
-                { dataField: 'Requirement'},
-                { dataField: 'Benifit'},
-                { dataField: 'Major'},
-                { dataField: 'Skill'},
-                { dataField: 'JobType'},
-              
+                { dataField: 'JobName' },
+                { dataField: 'Id' },
+                { dataField: 'CompanyName' },
+                { dataField: 'DeadLine', dataType: "date", displayFormat: "shortdate" },
+                { dataField: 'Quantity' },
+                { dataField: 'Salary' },
+                { dataField: 'CompanyId' },
+                { dataField: 'Exprence' },
+                { dataField: 'Gender' },
+                { dataField: 'AddressWork' },
+                { dataField: 'Locallocation' },
+                { dataField: 'Descriptions' },
+                { dataField: 'Requirement' },
+                { dataField: 'Benifit' },
+                { dataField: 'Major' },
+                { dataField: 'Skill' },
+                { dataField: 'JobType' },
+
             ],
             masterDetail: {
                 enabled: true,
-                template: function(container, options) { 
+                template: function (container, options) {
                     var currentjobData = options.data;
                     //.text(currentjobData.Id + " " + currentjobData.JobName + "'s Tasks:")
                     $("<div>")
                         .addClass("master-detail-caption")
                         .text("Thông tin các ứng viên đã ứng tuyển vào việc:" + currentjobData.JobName)
                         .appendTo(container);
-                    
+
                     $("<div>")
                         .dxDataGrid({
                             columnAutoWidth: true,
@@ -165,7 +165,7 @@ function bindDataToTableJob(data, tableid) {
                             }, {
                                 dataField: "username",
                                 caption: "Email"
-                            },{
+                            }, {
                                 type: "buttons",
                                 buttons: [{
                                     text: "Xem chi tiết",
@@ -175,14 +175,14 @@ function bindDataToTableJob(data, tableid) {
                                     }
                                 }]
                             }
-                    
-                        ],
+
+                            ],
                             dataSource: getCandicateByJobId(currentjobData.Id)
                         }).appendTo(container);
                 }
             }
-            
-            
+
+
         });
     });
 
@@ -190,14 +190,14 @@ function bindDataToTableJob(data, tableid) {
 
 }
 
-function openProfileById(userId){
+function openProfileById(userId) {
     url = `/User/?_id=${userId}`;
     var win = window.open(url, '_blank');
     win.focus();
 }
 
 function getCandicateByJobId(jobId) {
-    
+
     employeeappy = null;
     dataJobId = {
         JobId: `${jobId}`
@@ -209,7 +209,7 @@ function getCandicateByJobId(jobId) {
         contentType: "application/json;charset=utf-8",
         data: JSON.stringify(dataJobId),
         success: function (result) {
-           
+
             employeeappy = result.data;
         },
         error: function (e) {

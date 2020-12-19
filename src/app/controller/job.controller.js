@@ -18,13 +18,13 @@ class JobController {
         })
     }
     //get By Id
-    
-    async getById(req, res){
+
+    async getById(req, res) {
         console.log("fdsfjdsfhsdfdjsfhjdshfsdjhfsdjfhsdjkf")
         console.log(req.param.Id);
         const jobdetail = await job.findAll({
             where: {
-                Id : req.params.Id
+                Id: req.params.Id
             }
         })
         res.json({
@@ -35,61 +35,61 @@ class JobController {
     }
 
     post(req, res) {
-        
+
         //get information job
         console.log("request body")
         console.log(req.body);
-      
+
         job.create({
-                Name: `${req.body.Name}`,
-                CompanyName: req.body.CompanyName,
-                DeadLine : `${req.body.DeadLine}`,
-                Quantity: req.body.Quantity,
-                Salary: req.body.Salary,
-                Exprence : req.body.Exprence,
-                Gender : req.body.Gender,
-                AddressWork: req.body.AddressWork,
-                LocalzoneWork: req.body.LocalzoneWork,
-                Description: req.body.Description,
-                CompanyId: req.body.CompanyId,
-                Requirement: req.body.Requirement,
-                Benefit: req.body.Benefit,
-                Major: req.body.Major,
-                Skill: req.body.Skill,
-                JobType : req.body.JobType
-        }).then(function (result){
+            JobName: `${req.body.JobName}`,
+            CompanyName: req.body.CompanyName,
+            DeadLine: `${req.body.DeadLine}`,
+            Quantity: req.body.Quantity,
+            Salary: req.body.Salary,
+            Exprence: req.body.Exprence,
+            Gender: req.body.Gender,
+            AddressWork: req.body.AddressWork,
+            Locallocation: req.body.Locallocation,
+            Descriptions: req.body.Descriptions,
+            CompanyId: req.body.CompanyId,
+            Requirement: req.body.Requirement,
+            Benifit: req.body.Benifit,
+            Major: req.body.Major,
+            Skill: req.body.Skill,
+            JobType: req.body.JobType
+        }).then(function (result) {
             console.log("Abc");
             console.log(result)
-            
-             res.json({
-                    data: result.dataValues
-                   
-                })
+
+            res.json({
+                data: result.dataValues
+
+            })
         })
     }
-    put(req, res){
+    put(req, res) {
         console.log("sjsdfjsdfh")
         console.log(req.body);
-        
+
         job.update({
             Name: `${req.body.Name}`,
-                CompanyName: req.body.CompanyName,
-                JobName: req.body.JobName,
-                DeadLine : req.body.DeadLine,
-                Quantity: req.body.Quantity,
-                Salary: req.body.Salary,
-                Exprence : req.body.Exprence,
-                Gender : req.body.Gender,
-                AddressWork: req.body.AddressWork,
-                LocalzoneWork: req.body.LocalzoneWork,
-                Description: req.body.Description,
-                Requirement: req.body.Requirement,
-                Benefit: req.body.Benefit,
-                Major: req.body.Major,
-                CompanyId: req.body.CompanyId,
-                Skill: req.body.Skill,
-                JobType : req.body.JobType
-        },{
+            CompanyName: req.body.CompanyName,
+            JobName: req.body.JobName,
+            DeadLine: req.body.DeadLine,
+            Quantity: req.body.Quantity,
+            Salary: req.body.Salary,
+            Exprence: req.body.Exprence,
+            Gender: req.body.Gender,
+            AddressWork: req.body.AddressWork,
+            Locallocation: req.body.Locallocation,
+            Descriptions: req.body.Descriptions,
+            Requirement: req.body.Requirement,
+            Benefit: req.body.Benefit,
+            Major: req.body.Major,
+            CompanyId: req.body.CompanyId,
+            Skill: req.body.Skill,
+            JobType: req.body.JobType
+        }, {
             where: {
                 Id: `${req.body.Id}`
             }
@@ -100,13 +100,13 @@ class JobController {
             })
         })
     }
-    
-    delete(req, res){
+
+    delete(req, res) {
         Job.destroy({
             where: {
                 Id: `${req.query.Id}`
             }
-        }).then( () => {
+        }).then(() => {
             res.json({
                 result: "ok",
                 message: `Delete succesfully`
