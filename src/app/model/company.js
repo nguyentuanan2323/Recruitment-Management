@@ -4,7 +4,7 @@ const db = require('../../../database_sql');
 
 
 const Company = db.define('Company', {
-    Id:{
+    Id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
@@ -14,17 +14,17 @@ const Company = db.define('Company', {
         type: DataTypes.STRING(1000),
         allowNull: true
     },
-    JobId:{
-        type: DataTypes.INTEGER// Khóa ngoại tới Jobid
-    },
-    Introduce:{
+    // JobId:{
+    //     type: DataTypes.INTEGER// Khóa ngoại tới Jobid
+    // },
+    Introduce: {
         type: DataTypes.STRING(5000)
     },
-    ProductBusiness : {
+    ProductBusiness: {
         type: DataTypes.STRING(5000),
     },
     Service: {
-        type : DataTypes.STRING(5000)
+        type: DataTypes.STRING(5000)
     },
     ImagesLink: {
         type: DataTypes.STRING(5000)
@@ -41,7 +41,7 @@ const Company = db.define('Company', {
     Address: {
         type: DataTypes.STRING(4000)
     }
-},{
+}, {
     freezeTableName: true,
     timestamps: false
 });
