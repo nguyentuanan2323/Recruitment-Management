@@ -5,23 +5,23 @@ const job = require('.././app/controller/job.controller');
 
 /*router.use('/job',job.index);*/
 router.use('/get', ((req, res) => {
-    jobService.get(req,res);
+    jobService.get(req, res);
 }))
 router.use('/post', ((req, res) => {
-    jobService.post(req,res);
+    jobService.post(req, res);
 }));
 router.use('/put', ((req, res) => {
-    jobService.put(req,res);
+    jobService.put(req, res);
 }));
-router.use("/delete", ((req,res) =>{
-    jobService.delete(req,res);
+router.use("/delete", ((req, res) => {
+    jobService.delete(req, res);
 }))
 
 router.use('/getById/:Id', (req, res) => {
     console.log("vao get")
-	jobService.getById(req,res);
+    jobService.getById(req, res);
 })
 
-router.use('/',job.index);
+router.use('/', job.index);
 
 module.exports = router;
