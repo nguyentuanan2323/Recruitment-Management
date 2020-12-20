@@ -61,7 +61,7 @@ function createCompany(data) {
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
-        async: false,
+        async: true,
         data: data,
         success: function (result) {
             console.log("Thêm Thành công")
