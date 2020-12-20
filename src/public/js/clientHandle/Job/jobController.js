@@ -126,9 +126,9 @@ function bindDataToTableJob(data, tableid) {
                 }
             },
             columns: [
-                { dataField: 'JobName' },
+                { dataField: 'JobName', validationRules: [{ type: "required" }] },
                 { dataField: 'Id' },
-                { dataField: 'CompanyName' },
+                { dataField: 'CompanyName', validationRules: [{ type: "required" }] },
                 { dataField: 'DeadLine', dataType: "date", displayFormat: "shortdate" },
                 { dataField: 'Quantity' },
                 { dataField: 'Salary' },
@@ -142,7 +142,7 @@ function bindDataToTableJob(data, tableid) {
                 { dataField: 'Benifit' },
                 { dataField: 'Major' },
                 { dataField: 'Skill' },
-                { dataField: 'JobType' },
+                { dataField: 'JobType', validationRules: [{ type: "required" }] },
 
             ],
             masterDetail: {
