@@ -4,11 +4,12 @@
     <div class="container">
         <a href="../../index3.html" class="navbar-brand">
             <img src="/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">Recuirement Hub</span>
+                style="opacity: .8">
+            <span class="brand-text font-weight-light">Recruitment Hub</span>
         </a>
 
-        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -22,7 +23,8 @@
                     <a href="#" class="nav-link">Liên Hệ</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Trợ giúp</a>
+                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="nav-link dropdown-toggle">Trợ giúp</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="#" class="dropdown-item">Trợ giúp </a></li>
                         <li><a href="#" class="dropdown-item">Trắc nhiệm hướng nghiệp</a></li>
@@ -35,7 +37,8 @@
             <!-- SEARCH FORM -->
             <form class="form-inline ml-0 ml-md-3">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Tìm kiếm việc, công ty..." aria-label="Search">
+                    <input class="form-control form-control-navbar" type="search"
+                        placeholder="Tìm kiếm việc, công ty..." aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
                             <i class="fas fa-search"></i>
@@ -57,7 +60,8 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar"
+                                class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
@@ -73,7 +77,8 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar"
+                                class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     John Pierce
@@ -89,7 +94,8 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar"
+                                class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Nora Silvester
@@ -132,16 +138,16 @@
                     <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                 </div>
             </li>
-            <li class="nav-item dropdown"  id ="user-function">
-                <a class="nav-link" data-toggle="dropdown" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-                            class="fa fa-user-circle"></i>
+            <li class="nav-item dropdown" id="user-function">
+                <a class="nav-link" data-toggle="dropdown" data-widget="control-sidebar" data-slide="true" href="#"
+                    role="button"><i class="fa fa-user-circle"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <span id="username-hello" class="dropdown-header"></span>
                     <div class="dropdown-divider"></div>
                     <a href="/RecuirementManagement/company" class="dropdown-item">
                         <i class="fa fa-building mr-2" id="username"></i> Quản lí Công ty
-                        
+
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="RecuirementManagement/Checkstatus" class="dropdown-item">
@@ -154,9 +160,9 @@
                     <div class="dropdown-divider"></div>
                     <a href="/Account/Logout" class="dropdown-item">
                         <i class="fa fa-sign-out mr-2"></i> Đăng xuất
-                        
+
                     </a>
-                    
+
                 </div>
             </li>
         </ul>
@@ -164,7 +170,7 @@
 </nav>
 <script>
     function checkIsAuthenticated() {
-        
+
         $.ajax({
             url: `/Account/Checkstatus`,
             type: "GET",
@@ -173,31 +179,31 @@
             dataType: "json",
             success: function (result) {
                 debugger
-               if(result.user != 'null'){
+                if (result.user != 'null') {
                     $("#username-hello").append(`Xin Chào ${result.user}`)
                     $("#username-hello").append(`<span id="userId" hidden="true">${result._Id}</span>`)
-               }else{
-                $("#username-hello").append(`Vui lòng <a href="/Account/Login">Đăng nhập</a>`)
-               }
-               $('#manager-profile').attr("href", `/User/?_id=${result.test._id}`);
+                } else {
+                    $("#username-hello").append(`Vui lòng <a href="/Account/Login">Đăng nhập</a>`)
+                }
+                $('#manager-profile').attr("href", `/User/?_id=${result.test._id}`);
             },
-            error: function (e){
+            error: function (e) {
                 console.log(e);
             }
-         })
-    
+        })
+
     };
 
     $("#user-function").bind('ClassChanged', checkIsAuthenticated());
 
 
-   
-        
-    
-    
-   
-    
-  
+
+
+
+
+
+
+
 
 </script>
 
